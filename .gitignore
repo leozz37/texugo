@@ -6,6 +6,7 @@
 *.lo
 *.o
 *.obj
+message_switch
 
 # Precompiled Headers
 *.gch
@@ -34,3 +35,6 @@
 # IDE
 /.idea
 /cmake-build-debug
+
+# logs
+/log
