@@ -1,8 +1,8 @@
-add_library(main STATIC
-        src/main.cpp
+add_library(config STATIC
+        src/Settings.cpp
         )
 
-target_include_directories(main
+target_include_directories(config
         PUBLIC
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -10,8 +10,6 @@ target_include_directories(main
         src
         )
 
-target_link_libraries(main
+target_link_libraries(config
         log
-        metrics
-        config
         )

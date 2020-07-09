@@ -1,11 +1,10 @@
-#include <csignal>
-
+#include "config/Settings.hpp"
 #include "log/Logger.hpp"
 #include "metrics/MetricsExporter.hpp"
 
 int main(int argc, char** argv) {
-    Logger::getInstance().openLogFile("log/log.txt");
-    MetricsExporter::getInstance().start("127.0.0.1:8080");
-
+    Settings settings("src/data_store/config/settings.json");
+    Logger::getInstance().openLogFile(settings.getLogPath());
+    MetricsExporter::getInstance().start(settings.getMetricsAddress());
     return 0;
 }
