@@ -18,7 +18,7 @@ Simple MQ message switch using modern C++
 
 `$ mkdir build && cd build`
 
-`$ make`
+`$ cmake .. && make`
 
 ## Server Configs
 
