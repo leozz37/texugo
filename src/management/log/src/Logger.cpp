@@ -3,7 +3,7 @@
 
 void Logger::openLogFile(const std::string& logPath) {
     auto logFile = spdlog::rotating_logger_mt("logFile", logPath, 1048576 * 5, 3);
-    logInfo("LOG SYSTEM STARTED");
+    logWarn("LOG SYSTEM STARTED");
 }
 
 void Logger::logInfo(const std::string& message) {

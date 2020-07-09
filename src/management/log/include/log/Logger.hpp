@@ -18,4 +18,5 @@ public:
 
 private:
     Logger() noexcept = default;
+
 };

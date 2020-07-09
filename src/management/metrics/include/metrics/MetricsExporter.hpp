@@ -1,8 +1,25 @@
-//
-// Created by leo on 08/07/2020.
-//
+#pragma once
+#include <memory>
+#include <string>
+#include <vector>
+#include <prometheus/counter.h>
+#include <prometheus/exposer.h>
+#include <prometheus/registry.h>
 
-#ifndef MESSAGE_SWITCH_METRICSEXPORTER_HPP
-#define MESSAGE_SWITCH_METRICSEXPORTER_HPP
+class MetricsExporter {
+public:
+    MetricsExporter(const MetricsExporter& other) noexcept = delete;
+    MetricsExporter(MetricsExporter&& other) noexcept = delete;
+    MetricsExporter& operator = (const MetricsExporter& other) noexcept = delete;
+    MetricsExporter& operator = (MetricsExporter&& other) noexcept = delete;
 
-#endif //MESSAGE_SWITCH_METRICSEXPORTER_HPP
+    void exportRegistry(const std::weak_ptr<prometheus::Registry>&);
+    void start(const std::string&);
+    static MetricsExporter& getInstance();
+
+private:
+    MetricsExporter() noexcept = default;
+    std::unique_ptr<prometheus::Exposer> m_exposer;
+    std::vector<std::weak_ptr<prometheus::Registry>> m_pendingRegistries;
+
+};
