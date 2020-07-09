@@ -12,7 +12,7 @@ Simple MQ message switch using modern C++
 
 ##### Clone this repository
 
-`$ git clone https://github.com/leozz37/core-messaging.git`
+`$ git clone https://github.com/leozz37/message-switch.git`
 
 ##### Create a build directory and build binary
 
