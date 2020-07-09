@@ -1,0 +1,25 @@
+{
+  "settings": {
+    "port": "5555",
+    "mongoPath": "teste",
+    "logPath": "log/log.txt",
+    "metricsAddress": "127.0.0.1:8080"
+  },
+  "routingAddresses": [
+    {
+      "AAAAAAA": "3000"
+    },
+    {
+      "BBBBBBB": "3001"
+    },
+    {
+      "CCCCCCC": "3002"
+    },
+    {
+      "DDDDDDD": "3003"
+    },
+    {
+      "EEEEEEE": "3004"
+    }
+  ]
+}

@@ -7,6 +7,7 @@
 *.o
 *.obj
 
+
 # Precompiled Headers
 *.gch
 *.pch
@@ -34,3 +35,6 @@
 # IDE
 /.idea
 /cmake-build-debug
+
+# logs
+/log

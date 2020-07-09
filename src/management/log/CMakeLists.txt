@@ -1,17 +1,11 @@
-add_library(main STATIC
-        src/main.cpp
+add_library(log STATIC
+        src/Logger.cpp
         )
 
-target_include_directories(main
+target_include_directories(log
         PUBLIC
         $<INSTALL_INTERFACE:include>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         PRIVATE
         src
-        )
-
-target_link_libraries(main
-        log
-        metrics
-        config
         )
