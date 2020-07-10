@@ -22,6 +22,10 @@ const std::string &Settings::getMetricsAddress() const {
     return m_metricsAddress;
 }
 
+const std::unordered_map<std::string, std::string> &Settings::getRoutingAddresses() const {
+    return m_routingAddresses;
+}
+
 void Settings::setRoutingAddresses(nlohmann::json data) {
     for (auto address : data["routingAddresses"]) {
         auto data = address.get<std::map<std::string, std::string>>();
@@ -35,5 +39,3 @@ nlohmann::json Settings::getServerConfigs() {
     nlohmann::json serverConfig = nlohmann::json::parse(jsonData);
     return serverConfig;
 }
-
-
