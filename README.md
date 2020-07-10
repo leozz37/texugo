@@ -1,4 +1,4 @@
-# Message Switch [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/message-switch/badge/master)](https://www.codefactor.io/repository/github/leozz37/message-switch/overview/master)
+# Message Switch [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/message-switch/badge/master)](https://www.codefactor.io/repository/github/leozz37/message-switch/overview/mastera)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Simple MQ message switch using modern C++
 
