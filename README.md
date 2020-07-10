@@ -1,6 +1,7 @@
-# message-switch
+# Message Switch [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/message-switch/badge/master)](https://www.codefactor.io/repository/github/leozz37/message-switch/overview/master)
+
 Simple MQ message switch using modern C++
-[![CodeFactor](https://www.codefactor.io/repository/github/leozz37/message-switch/badge/master)](https://www.codefactor.io/repository/github/leozz37/message-switch/overview/master)
+
 
 ## Features
 
