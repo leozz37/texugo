@@ -14,12 +14,7 @@ find_package(spdlog REQUIRED)
 find_package(prometheus-cpp REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
-add_library(texugo STATIC
-        include/texugo/com/Connection.hpp
-        include/texugo/com/Manager.hpp
-        include/texugo/config/Settings.hpp
-        include/texugo/log/Logger.hpp
-        include/texugo/metrics/MetricsExporter.hpp
+add_executable(texugo
         src/com/Connection.cpp
         src/com/Manager.cpp
         src/config/Settings.cpp
@@ -35,12 +30,7 @@ target_include_directories(texugo
             ${CMAKE_CURRENT_SOURCE_DIR}/src
             ${texugo_GEN_BINARY_DIR}/src)
 
-
 target_link_libraries(texugo
-        com
-        config
-        log
-        metrics
         spdlog::spdlog
         prometheus-cpp::pull
         nlohmann_json::nlohmann_json)
