@@ -20,5 +20,4 @@ private:
     std::string m_logPath;
     std::string m_metricsAddress;
     std::unordered_map<std::string, std::string> m_routingAddresses;
-
 };

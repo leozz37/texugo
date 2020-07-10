@@ -21,5 +21,4 @@ private:
     MetricsExporter() noexcept = default;
     std::unique_ptr<prometheus::Exposer> m_exposer;
     std::vector<std::weak_ptr<prometheus::Registry>> m_pendingRegistries;
-
 };
