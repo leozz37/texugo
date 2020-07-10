@@ -1,5 +1,7 @@
-# message-switch
-Simple MQ message switch using modern C++
+# Texugo [![Build Status](https://travis-ci.com/leozz37/texugo.svg?branch=master)](https://travis-ci.com/leozz37/texugo) [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/message-switch/badge)](https://www.codefactor.io/repository/github/leozz37/message-switch)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Texugo is a simple message switch based on ZMQ and modern C++
+
 
 ## Features
 

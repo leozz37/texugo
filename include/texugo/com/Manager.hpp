@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <unordered_map>
-#include "com/Connection.hpp"
+#include <texugo/com/Connection.hpp>
 
 class Manager {
 public:

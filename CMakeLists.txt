@@ -1,30 +1,36 @@
-cmake_minimum_required(VERSION 3.16)
-project(message_switch)
+cmake_minimum_required(VERSION 3.9)
+
+project(texugo
+        VERSION 0.0.1
+        LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
+
+set(texugo_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(texugo_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
+set(texugo_GEN_BINARY_DIR ${texugo_BINARY_DIR}/gen)
 
 find_package(spdlog REQUIRED)
 find_package(prometheus-cpp REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
-add_subdirectory(src/com)
-add_subdirectory(src/data_store)
-add_subdirectory(src/main)
-add_subdirectory(src/management)
+add_executable(texugo
+        src/com/Connection.cpp
+        src/com/Manager.cpp
+        src/config/Settings.cpp
+        src/log/Logger.cpp
+        src/main/main.cpp
+        src/metrics/MetricsExporter.cpp)
 
-add_executable(message_switch
-        src/main/src/main.cpp
-        )
+target_include_directories(texugo
+        PUBLIC
+            $<INSTALL_INTERFACE:include>
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        PRIVATE
+            ${CMAKE_CURRENT_SOURCE_DIR}/src
+            ${texugo_GEN_BINARY_DIR}/src)
 
-target_link_libraries(message_switch
-        com
-        config
-        log
-        metrics
-
-
+target_link_libraries(texugo
         spdlog::spdlog
         prometheus-cpp::pull
-        nlohmann_json::nlohmann_json
-        )
+        nlohmann_json::nlohmann_json)
