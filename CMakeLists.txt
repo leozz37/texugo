@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.9)
+
 project(texugo
         VERSION 0.0.1
         LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR})
 
 set(texugo_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(texugo_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
@@ -27,7 +27,7 @@ add_library(texugo STATIC
         src/main/main.cpp
         src/metrics/MetricsExporter.cpp)
 
-target_include_directories (texugo INTERFACE
+target_include_directories(texugo
         PUBLIC
             $<INSTALL_INTERFACE:include>
             $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -35,7 +35,6 @@ target_include_directories (texugo INTERFACE
             ${CMAKE_CURRENT_SOURCE_DIR}/src
             ${texugo_GEN_BINARY_DIR}/src)
 
-add_library(texugo::texugo ALIAS texugo)
 
 target_link_libraries(texugo
         com
@@ -44,5 +43,4 @@ target_link_libraries(texugo
         metrics
         spdlog::spdlog
         prometheus-cpp::pull
-        nlohmann_json::nlohmann_json
-        )
+        nlohmann_json::nlohmann_json)
