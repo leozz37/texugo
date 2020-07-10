@@ -8,6 +8,7 @@ find_package(spdlog REQUIRED)
 find_package(prometheus-cpp REQUIRED)
 find_package(nlohmann_json REQUIRED)
 
+add_subdirectory(src/com)
 add_subdirectory(src/data_store)
 add_subdirectory(src/main)
 add_subdirectory(src/management)
@@ -17,9 +18,11 @@ add_executable(message_switch
         )
 
 target_link_libraries(message_switch
+        com
+        config
         log
         metrics
-        config
+
 
         spdlog::spdlog
         prometheus-cpp::pull
