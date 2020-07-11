@@ -1,10 +1,14 @@
-images:
+image:
   - Visual Studio 2017
 clone_folder: c:\projects\source
 build_script:
-  - cmd: >-
+- cmd: >-
       ci/install-dependencies.sh
+
       mkdir build
+
       cd build
+
       cmake c:\projects\source -G "Visual Studio 15"
+
       cmake --build . --config "Debug"
