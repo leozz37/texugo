@@ -6,10 +6,10 @@ Texugo is a simple message switch based on ZMQ and modern C++
 
 ## Features
 
-- End-to-end system that simulates a message switching system, with ZeroMQ;
-- Support to store messages on MongoDB;
-- Support to spdlog;
-- Support to build binary and run application on Docker;
+-   End-to-end system that simulates a message switching system, with ZeroMQ;
+-   TODO: Support to store messages on MongoDB;
+-   Logging support with spdlog;
+-   TODO: Support to build binary and run application on Docker;
 
 ## Installation
 
