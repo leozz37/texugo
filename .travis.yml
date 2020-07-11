@@ -1,21 +1,23 @@
-dist: trusty
-sudo: false
+dist: xenial
+sudo: true
 language: cpp
+compiler: gcc
 
-matrix:
-    include:
-        - os: linux
-        compiler: gcc
-        addons:
-            apt:
-                sources:
-                    - ubuntu-toolchain-r-test
-                packages:
-                    - g++-7
-                    - gcc-7
-            env:
-                - COMPILER=g++-7
+cache:
+    - apt
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - g++-9
+            - gcc-9
+
+before_install:
+    - chmod +x ci/*
+    - ci/install-dependencies.sh
 
 script:
-    - CXX=/usr/g++5 CC=/usr/bin/gcc-5 cmake .
+    - CXX=/usr/bin/g++-9 CC=/usr/bin/gcc-9 cmake .
     - cmake --build . -- -j2
