@@ -1,7 +1,23 @@
-dist: trusty
-sudo: false
+dist: xenial
+sudo: true
 language: cpp
+compiler: gcc
+
+cache:
+    - apt
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - g++-9
+            - gcc-9
+
+before_install:
+    - chmod +x ci/*
+    - ci/install-dependencies.sh
 
 script:
-    - cmake .
-    - cmake --build . -- -j2 
+    - CXX=/usr/bin/g++-9 CC=/usr/bin/gcc-9 cmake .
+    - cmake --build . -- -j2
