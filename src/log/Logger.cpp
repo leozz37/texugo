@@ -2,7 +2,7 @@
 #include <spdlog/sinks/rotating_file_sink.h>
 
 void Logger::openLogFile(const std::string& logPath) {
-    auto logFile = spdlog::rotating_logger_mt("logFile", logPath, 1048576 * 5, 3);
+    spdlog::rotating_logger_mt("logFile", logPath, 1048576 * 5, 3);
     logWarn("LOG SYSTEM STARTED");
 }
 
