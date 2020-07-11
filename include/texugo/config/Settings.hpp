@@ -5,7 +5,7 @@
 
 class Settings {
 public:
-    Settings(const std::string&);
+    explicit Settings(const std::string&);
     const std::string& getMongoPath() const;
     const std::string& getLogPath() const;
     const std::string& getMetricsAddress() const;
