@@ -1,5 +1,5 @@
-#include <texugo/com/Manager.hpp>
-#include <texugo/log/Logger.hpp>
+#include "texugo/com/Manager.hpp"
+#include "texugo/log/Logger.hpp"
 
 void Manager::createConnections(const std::unordered_map<std::string, std::string>& routingAddresses) {
     for (auto& connection : routingAddresses) {

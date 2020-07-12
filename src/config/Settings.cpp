@@ -1,4 +1,4 @@
-#include <texugo/config/Settings.hpp>
+#include "texugo/config/Settings.hpp"
 #include <fstream>
 #include <nlohmann/json.hpp>
 

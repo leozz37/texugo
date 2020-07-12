@@ -1,4 +1,4 @@
-#include <texugo/com/Connection.hpp>
+#include "texugo/com/Connection.hpp"
 
 Connection::Connection(const std::string& name, const std::string& port) : m_name(name), m_port(port) { }
 
