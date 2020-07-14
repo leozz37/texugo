@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.9)
+cmake_minimum_required(VERSION 3.12)
 
 project(texugo
         VERSION 0.0.1
@@ -9,10 +9,6 @@ set(CMAKE_CXX_STANDARD 17)
 message(STATUS "Texugo: Tests enabled")
 enable_testing(true)
 add_subdirectory(tests)
-
-set(TEXUGO_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-set(TEXUGO_BINARY_DIR ${CMAKE_CURRENT_BINARY_DIR})
-set(TEXUGO_GEN_BINARY_DIR ${texugo_BINARY_DIR}/gen)
 
 find_package(spdlog REQUIRED)
 find_package(prometheus-cpp REQUIRED)
@@ -38,5 +34,3 @@ target_link_libraries(texugo
         spdlog::spdlog
         prometheus-cpp::pull
         nlohmann_json::nlohmann_json)
-
-enable_testing()
