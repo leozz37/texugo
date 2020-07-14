@@ -1,7 +1,7 @@
 find_package(GTest REQUIRED)
 add_executable(unit_tests
         main/main.cpp
-        com/ManagerTest.cpp)
+        )
 
 target_link_libraries(unit_tests
         ${GTEST_LIBRARIES}
