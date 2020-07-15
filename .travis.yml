@@ -13,11 +13,29 @@ addons:
         packages:
             - g++-9
             - gcc-9
+    coverity_scan:
+        project:
+            name: "leozz37/texugo"
+            description: "Texugo is a simple message switch based on RabbitMQ and modern C++"
+        notification_email: leonardoaugusto287@gmail.com
+        build_command_prepend: "cov-configure --comptype gcc --compiler $COMPILER --template; cmake -H. -Bbuild -DCMAKE_CXX_COMPILER=$COMPILER"
+        build_command: "cmake --build build"
+        branch_pattern: coverity_scan
+    env:
+        - COMPILER=g++-9
+        - IS_COVERAGE_BUILD=1
 
 before_install:
     - chmod +x ci/*
+    - ci/travis-before-install.sh
+    - ci/travis-system-info.sh
     - ci/install-dependencies.sh
 
 script:
-    - CXX=/usr/bin/g++-9 CC=/usr/bin/gcc-9 cmake .
-    - cmake --build . -- -j2
+    - ci/travis-script.sh
+
+after_success:
+    - ci/travis-after-success.sh
+
+notifications:
+    email: false

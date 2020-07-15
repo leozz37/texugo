@@ -3,6 +3,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/texugo/badge)](https://www.codefactor.io/repository/github/leozz37/texugo)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c15c07a6a5b24b248ffe066e89d98b77)](https://www.codacy.com/manual/leozz37/texugo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leozz37/texugo&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.com/leozz37/texugo.svg?branch=master)](https://travis-ci.com/leozz37/texugo)
+[![Coverage Status](https://coveralls.io/repos/github/leozz37/texugo/badge.svg?branch=master)](https://coveralls.io/github/leozz37/texugo?branch=master)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Texugo is a simple message switch based on RabbitMQ and modern C++

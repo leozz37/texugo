@@ -29,8 +29,8 @@ TEST_F(ConnectionFixture, InsertQueue) {
     const std::string message = "payload";
 
     m_connection->insertQueue(message);
-    const std::size_t result = m_connection->getMessageQueue().size();
 
+    const std::size_t result = m_connection->getMessageQueue().size();
     ASSERT_EQ(result, 1);
 }
 
@@ -39,8 +39,8 @@ TEST_F(ConnectionFixture, RemoveQueue) {
 
     m_connection->insertQueue(message);
     m_connection->removeQueue();
-    const std::size_t result = m_connection->getMessageQueue().size();
 
+    const std::size_t result = m_connection->getMessageQueue().size();
     ASSERT_EQ(result, 0);
 }
 
@@ -74,7 +74,6 @@ TEST_F(ConnectionFixture, InsertQueueWatermarkOn) {
     m_connection->insertQueue(message);
 
     const std::size_t result = m_connection->getMessageQueue().size();
-
     ASSERT_EQ(result, 01);
 }
 
@@ -86,6 +85,5 @@ TEST_F(ConnectionFixture, InsertQueueFull) {
     }
 
     const std::size_t result = m_connection->getMessageQueue().size();
-
     ASSERT_EQ(result, 20);
 }
