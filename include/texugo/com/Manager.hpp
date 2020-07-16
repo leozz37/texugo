@@ -5,7 +5,7 @@
 
 class Manager {
 public:
-    Manager(const std::unordered_map<std::string, std::string>&);
+    explicit Manager(const std::unordered_map<std::string, std::string>&);
     void createConnection(const std::string&, const std::string&);
     const std::unordered_map<std::string, Connection> &getConnectionList() const;
 

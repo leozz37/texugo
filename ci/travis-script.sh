@@ -6,7 +6,7 @@ fi
 
 if [ "$IS_COVERAGE_BUILD" == 1 ]; then
   flags="-g -O0 --coverage"
-  cmake -DCMAKE_CXX_COMPILER=$COMPILER -DCMAKE_CXX_FLAGS="$flags" -DCMAKE_BUILD_TYPE=Debug .
+  cmake -DCMAKE_CXX_COMPILER="$COMPILER" -DCMAKE_CXX_FLAGS="$flags" -DCMAKE_BUILD_TYPE=Debug .
 else
   mkdir build && cd build
   CXX=/usr/bin/g++-9 CC=/usr/bin/gcc-9 cmake ..
