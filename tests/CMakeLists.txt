@@ -4,7 +4,7 @@ add_executable(unit_tests
         main/main.cpp
         com/ConnectionTest.cpp
         com/ManagerTest.cpp
-        config/SettingsTest.cpp log/LoggerTest.cpp)
+        config/SettingsTest.cpp)
 
 target_link_libraries(unit_tests
         texugo
