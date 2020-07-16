@@ -28,13 +28,13 @@ addons:
 before_install:
     - chmod +x ci/*
     - ci/install-dependencies.sh
-    - ci/travis-before-install.sh
+    - pip install --user cpp-coveralls
 
 script:
     - ci/travis-script.sh
 
 after_success:
-    - ci/travis-after-success.sh
+    - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
 
 notifications:
     email: false
