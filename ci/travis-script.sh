@@ -5,3 +5,4 @@ flags="-g -O0 --coverage"
 cmake -DCMAKE_CXX_COMPILER=g++-7 -DCMAKE_CXX_FLAGS="$flags" -DCMAKE_BUILD_TYPE=Debug ..
 cmake --build . -- -j2
 ctest -V --output-on-failure
+coveralls -e googletest -e json -e prometheus-cpp -e spdlog -e tests --gcov-options '\-lp'

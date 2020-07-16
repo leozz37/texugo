@@ -34,8 +34,5 @@ before_install:
 script:
     - ci/travis-script.sh
 
-after_success:
-    - coveralls -e googletest -e json -e prometheus-cpp -e spdlog -e tests --gcov-options '\-lp'
-
 notifications:
     email: false
