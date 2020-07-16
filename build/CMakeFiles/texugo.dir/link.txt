@@ -1,2 +1,0 @@
-/usr/bin/ar qc libtexugo.a CMakeFiles/texugo.dir/src/com/Connection.cpp.o CMakeFiles/texugo.dir/src/com/Manager.cpp.o CMakeFiles/texugo.dir/src/config/Settings.cpp.o CMakeFiles/texugo.dir/src/log/Logger.cpp.o CMakeFiles/texugo.dir/src/metrics/MetricsExporter.cpp.o
-/usr/bin/ranlib libtexugo.a

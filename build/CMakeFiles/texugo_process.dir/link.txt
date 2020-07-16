@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/texugo_process.dir/src/main/main.cpp.o -o texugo_process  libtexugo.a /usr/local/lib/libspdlog.a /usr/local/lib/libprometheus-cpp-pull.a /usr/local/lib/libprometheus-cpp-core.a -lpthread /usr/lib/x86_64-linux-gnu/libz.so 

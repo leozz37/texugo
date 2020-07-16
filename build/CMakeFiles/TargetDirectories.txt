@@ -1,9 +1,0 @@
-/home/leo/Documents/codes/texugo/build/CMakeFiles/rebuild_cache.dir
-/home/leo/Documents/codes/texugo/build/CMakeFiles/edit_cache.dir
-/home/leo/Documents/codes/texugo/build/CMakeFiles/test.dir
-/home/leo/Documents/codes/texugo/build/CMakeFiles/texugo.dir
-/home/leo/Documents/codes/texugo/build/CMakeFiles/texugo_process.dir
-/home/leo/Documents/codes/texugo/build/tests/CMakeFiles/rebuild_cache.dir
-/home/leo/Documents/codes/texugo/build/tests/CMakeFiles/edit_cache.dir
-/home/leo/Documents/codes/texugo/build/tests/CMakeFiles/test.dir
-/home/leo/Documents/codes/texugo/build/tests/CMakeFiles/unit_tests.dir
