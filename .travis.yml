@@ -11,8 +11,8 @@ addons:
         sources:
             - ubuntu-toolchain-r-test
         packages:
-            - g++-9
-            - gcc-9
+            - g++-7
+            - gcc-7
     coverity_scan:
         project:
             name: "leozz37/texugo"
@@ -22,10 +22,11 @@ addons:
         build_command: "cmake --build build"
         branch_pattern: coverity_scan
     env:
-        - COMPILER=g++-9
+        - COMPILER=g++-7
         - IS_COVERAGE_BUILD=1
 
 before_install:
+    - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-certificates.crt
     - chmod +x ci/*
     - ci/install-dependencies.sh
     - pip install --user cpp-coveralls
@@ -34,7 +35,7 @@ script:
     - ci/travis-script.sh
 
 after_success:
-    - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
+    - coveralls -e googletest -e json -e prometheus-cpp -e spdlog -e tests --gcov-options '\-lp'
 
 notifications:
     email: false
