@@ -27,9 +27,8 @@ addons:
 
 before_install:
     - chmod +x ci/*
-    - ci/travis-before-install.sh
-    - ci/travis-system-info.sh
     - ci/install-dependencies.sh
+    - ci/travis-before-install.sh
 
 script:
     - ci/travis-script.sh
