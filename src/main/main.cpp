@@ -6,11 +6,10 @@
 int main(int argc, char** argv) {
     const std::string settingsPath = "../resources/settings.json";
     Settings settings(settingsPath);
-    
+
     Logger::getInstance().openLogFile(settings.getLogPath());
     MetricsExporter::getInstance().start(settings.getMetricsAddress());
-
-    Manager::getInstance().createConnections(settings.getRoutingAddresses());
+    Manager manager(settings.getRoutingAddresses());
 
     return 0;
 }

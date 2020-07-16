@@ -26,3 +26,11 @@ cmake .. -DBUILD_SHARED_LIBS=OFF
 make -j2
 sudo make install
 cd ../..
+
+## Installing Google Test and Google Mock
+git clone https://github.com/google/googletest.git
+mkdir googletest/build && cd googletest/build
+cmake ..
+make -j2
+sudo make install
+cd ../..

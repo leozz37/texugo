@@ -1,18 +1,20 @@
 #include "texugo/com/Manager.hpp"
 #include "texugo/log/Logger.hpp"
 
-void Manager::createConnections(const std::unordered_map<std::string, std::string>& routingAddresses) {
+Manager::Manager(const std::unordered_map<std::string, std::string>& routingAddresses) {
     for (auto& connection : routingAddresses) {
         const std::string name = connection.first;
         const std::string port = connection.second;
-
-        Connection cnx(name, port);
-        m_connectionList.insert({ name, cnx });
-        Logger::getInstance().logInfo("Connection created | NAME: " + name + " - PORT: " + port);
+        createConnection(name, port);
     }
 }
 
-Manager& Manager::getInstance() {
-    static Manager instance;
-    return instance;
+void Manager::createConnection(const std::string& name, const std::string& port) {
+    Connection cnx(name, port);
+    m_connectionList.insert({ name, cnx });
+    Logger::getInstance().logInfo("Connection created | NAME: " + name + " - PORT: " + port);
+}
+
+const std::unordered_map<std::string, Connection> &Manager::getConnectionList() const {
+    return m_connectionList;
 }

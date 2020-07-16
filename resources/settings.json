@@ -2,7 +2,7 @@
   "settings": {
     "port": "5555",
     "mongoPath": "",
-    "logPath": "log/log.txt",
+    "logPath": "../log/log.txt",
     "metricsAddress": "127.0.0.1:8080"
   },
   "routingAddresses": [
