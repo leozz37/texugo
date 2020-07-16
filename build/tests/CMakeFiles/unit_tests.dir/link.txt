@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/unit_tests.dir/main/main.cpp.o CMakeFiles/unit_tests.dir/com/ConnectionTest.cpp.o -o unit_tests  ../libtexugo.a /usr/local/lib/libgtest.a -lpthread 
