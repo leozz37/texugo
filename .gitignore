@@ -35,6 +35,7 @@
 # IDE
 /.idea
 /cmake-build-debug
+/build
 
 # logs
 /log
