@@ -1,4 +1,5 @@
-#include <texugo/com/Connection.hpp>
+#include "texugo/com/Connection.hpp"
+#include <iostream>
 
 Connection::Connection(const std::string& name, const std::string& port) : m_name(name), m_port(port) { }
 
@@ -6,25 +7,29 @@ void Connection::insertQueue(const std::string& message) {
     if (!m_watermark) {
         if (m_messageQueue.size() >= 20) {
             m_watermark = true;
-            rejectMessage();
+//            rejectMessage();
         }
         else {
             m_messageQueue.push(message);
         }
     }
     else {
-        if (m_messageQueue.size() < 20) {
-            m_watermark = true;
+        if (m_messageQueue.size() <= 19) {
+            m_watermark = false;
             m_messageQueue.push(message);
         }
         else {
-            rejectMessage();
+//            rejectMessage();
         }
     }
 }
 
-void Connection::rejectMessage() {
-    // TODO create reject message system
+void Connection::removeQueue() {
+    m_messageQueue.pop();
+
+    if (m_messageQueue.size() <= 19) {
+        m_watermark = false;
+    }
 }
 
 const std::string &Connection::getName() const {
@@ -33,4 +38,16 @@ const std::string &Connection::getName() const {
 
 const std::string &Connection::getPort() const {
     return m_port;
+}
+
+const std::queue<std::string> &Connection::getMessageQueue() const {
+    return m_messageQueue;
+}
+
+void Connection::setWatermark(bool watermark) {
+    m_watermark = watermark;
+}
+
+bool Connection::getWatermark() const {
+    return m_watermark;
 }
