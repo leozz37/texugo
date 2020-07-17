@@ -10,6 +10,6 @@ int main(int argc, char** argv) {
     Logger::getInstance().openLogFile(settings.getLogPath());
     MetricsExporter::getInstance().start(settings.getMetricsAddress());
     Manager manager(settings.getRoutingAddresses());
-
+//
     return 0;
 }
