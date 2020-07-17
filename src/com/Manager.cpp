@@ -16,7 +16,7 @@ void Manager::createConnection(const std::string& name, const std::string& port)
         Connection cnx(name, port);
         m_connectionList.insert({ name, cnx });
         // TODO: fix logger constructor
-        Logger::getInstance().logInfo("Connection created | NAME: " + name + " - PORT: " + port);
+//        Logger::getInstance().logInfo("Connection created | NAME: " + name + " - PORT: " + port);
     }
     else {
         throw std::runtime_error("Connection NAME already exists");
