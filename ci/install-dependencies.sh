@@ -6,7 +6,7 @@ tar xvfz cmake-3.17.3.tar.gz
 cd cmake-3.17.3
 ./bootstrap -- -DCMAKE_USE_OPENSSL=OFF -DCXXFLAGS=gcc-7
 make -j4
-make install
+sudo make install
 # Installing Nlohmann Json lib
 # git clone https://github.com/nlohmann/json.git
 # mkdir json/build && cd json/build
