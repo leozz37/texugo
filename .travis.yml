@@ -41,7 +41,7 @@ before_install:
 script:
     - mkdir build && cd build
     - cmake -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9 --coverage ..
-    - cmake --build . -- -j2
+    - make
 
 after_success:
     - coveralls -e examples -e tests --gcov-options '\-lp'
