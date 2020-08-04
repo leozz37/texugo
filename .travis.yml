@@ -25,14 +25,11 @@ addons:
         - COMPILER=g++-7
         - IS_COVERAGE_BUILD=1
 
-before_install:
+install:
     - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-certificates.crt
     - chmod +x ci/*
     - ci/install-dependencies.sh
     - pip install --user cpp-coveralls
-
-
-install:
     - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
     - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
     - travis_retry wget --no-check-certificate https://cmake.org/files/v3.17/cmake-3.17.3-Linux-x86_64.tar.gz
