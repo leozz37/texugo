@@ -24,10 +24,7 @@ CPMAddPackage(
     NAME spdlog
     GITHUB_REPOSITORY gabime/spdlog
     VERSION 1.7.0)
-
-# Google Test
-
-    
+   
 add_executable(texugo_process
     src/main/main.cpp)
 
