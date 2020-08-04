@@ -39,10 +39,10 @@ before_install:
     - cd ${TRAVIS_BUILD_DIR}
     - mkdir -p cmake
     - wget -O cmake/CPM.cmake https://github.com/TheLartians/CPM.cmake/releases/latest/download/CPM.cmake
-    
+
 script:
     - mkdir build && cd build
-    - cmake --coverage ..
+    - cmake -DCMAKE_CXX_COMPILER=g++-9 --coverage ..
     - make  -j2
 
 after_success:
