@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# Installing CMake
-wget https://github.com/Kitware/CMake/releases/download/v3.17.3/cmake-3.17.3.tar.gz
-tar xvfz cmake-3.17.3.tar.gz
-cd cmake-3.17.3
-./bootstrap -- -DCMAKE_USE_OPENSSL=OFF -DCXXFLAGS=gcc-7
-make -j4
-sudo make install
 # Installing Nlohmann Json lib
 # git clone https://github.com/nlohmann/json.git
 # mkdir json/build && cd json/build
