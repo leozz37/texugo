@@ -1,4 +1,4 @@
-dist: xenial
+dist: trusty
 sudo: true
 language: cpp
 compiler: gcc
@@ -41,7 +41,7 @@ before_install:
 script:
     - mkdir build && cd build
     - cmake -DCMAKE_CXX_COMPILER=g++-9 --coverage ..
-    - cmake --build -DCMAKE_CXX_COMPILER=g++-9 . -- -j2
+    - cmake --build . -- -j2
 
 after_success:
     - coveralls -e examples -e tests --gcov-options '\-lp'
