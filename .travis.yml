@@ -11,8 +11,8 @@ addons:
         sources:
             - ubuntu-toolchain-r-test
         packages:
-            - g++-7
-            - gcc-7
+            - g++-9
+            - gcc-9
     coverity_scan:
         project:
             name: "leozz37/texugo"
@@ -22,7 +22,7 @@ addons:
         build_command: "cmake --build build"
         branch_pattern: coverity_scan
     env:
-        - COMPILER=g++-7
+        - COMPILER=g++-9
         - IS_COVERAGE_BUILD=1
 
 install:
@@ -42,7 +42,7 @@ install:
 script:
     - mkdir build && cd build
     - flags="-g -O0 --coverage"
-    - cmake -DCMAKE_CXX_COMPILER=g++-7 -DCMAKE_CXX_FLAGS="$flags" -DCPM_Dep_SOURCE=/tmp/deps -DCMAKE_BUILD_TYPE=Debug ..
+    - cmake -DCMAKE_CXX_COMPILER=g++-9 -DCMAKE_CXX_FLAGS="$flags" ..
     - cmake --build . -- -j2
 
 after_success:
