@@ -34,8 +34,12 @@
 
 # IDE
 /.idea
+/.vscode
 /cmake-build-debug
 /build
+
+# CMake
+/cmake
 
 # logs
 /log

@@ -1,4 +1,4 @@
-dist: xenial
+dist: trusty
 sudo: true
 language: cpp
 compiler: gcc
@@ -11,8 +11,8 @@ addons:
         sources:
             - ubuntu-toolchain-r-test
         packages:
-            - g++-7
-            - gcc-7
+            - g++-9
+            - gcc-9
     coverity_scan:
         project:
             name: "leozz37/texugo"
@@ -22,16 +22,24 @@ addons:
         build_command: "cmake --build build"
         branch_pattern: coverity_scan
     env:
-        - COMPILER=g++-7
+        - COMPILER=g++-9
         - IS_COVERAGE_BUILD=1
 
 before_install:
     - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-certificates.crt
-    - chmod +x ci/*
     - pip install --user cpp-coveralls
+    - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+    - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
+    - travis_retry wget --no-check-certificate https://cmake.org/files/v3.18/cmake-3.18.0-Linux-x86_64.tar.gz
+    - tar -xvf cmake-3.18.0-Linux-x86_64.tar.gz > /dev/null
+    - mv cmake-3.18.0-Linux-x86_64 cmake-install
+    - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
+    - cd ${TRAVIS_BUILD_DIR}
 
 script:
-    - ci/travis-script.sh
+    - mkdir build && cd build
+    - cmake -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9 --coverage ..
+    - make -j2
 
 after_success:
     - coveralls -e examples -e tests --gcov-options '\-lp'
