@@ -10,8 +10,16 @@ message(STATUS "Texugo: Tests enabled")
 enable_testing(true)
 add_subdirectory(tests)
 
-# Downloading dependencies
-include(cmake/CPM.cmake)
+# Downloading CPM file
+set(CPM_DOWNLOAD_LOCATION "${CMAKE_BINARY_DIR}/../cmake/CPM.cmake")
+set(CPM_DOWNLOAD_VERSION 0.25.1)
+
+if(NOT (EXISTS ${CPM_DOWNLOAD_LOCATION} AND CPM_VERSION STREQUAL CPM_DOWNLOAD_VERSION))
+  message(STATUS "Downloading CPM.cmake")
+  file(DOWNLOAD https://github.com/TheLartians/CPM.cmake/releases/download/v${CPM_DOWNLOAD_VERSION}/CPM.cmake ${CPM_DOWNLOAD_LOCATION})
+endif()
+
+include(${CPM_DOWNLOAD_LOCATION})
 
 # Nlohmann Json
 CPMAddPackage(
@@ -44,5 +52,5 @@ target_include_directories(texugo
 
 target_link_libraries(texugo_process
     texugo
-    spdlog::spdlog
-    nlohmann_json::nlohmann_json)
+    spdlog
+    nlohmann_json)
