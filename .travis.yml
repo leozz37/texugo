@@ -36,6 +36,11 @@ before_install:
     - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
     - cd ${TRAVIS_BUILD_DIR}
 
+script:
+    - mkdir build && cd build
+    - cmake -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9 --coverage ..
+    - make -j2
+
 after_success:
     - coveralls -e examples -e tests --gcov-options '\-lp'
 

@@ -1,14 +1,10 @@
-cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.18.0)
 
 project(texugo
     VERSION 0.0.1
     LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
-
-message(STATUS "Texugo: Tests enabled")
-enable_testing(true)
-add_subdirectory(tests)
 
 # Downloading CPM file
 set(CPM_DOWNLOAD_LOCATION "${CMAKE_BINARY_DIR}/../cmake/CPM.cmake")
@@ -32,6 +28,10 @@ CPMAddPackage(
     NAME spdlog
     GITHUB_REPOSITORY gabime/spdlog
     VERSION 1.7.0)
+
+message(STATUS "Texugo: Tests enabled")
+enable_testing(true)
+add_subdirectory(tests)
    
 add_executable(texugo_process
     src/main/main.cpp)
