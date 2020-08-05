@@ -19,9 +19,9 @@ include(${CPM_DOWNLOAD_LOCATION})
 
 # Nlohmann Json
 CPMAddPackage(
-        NAME nlohmann_json
-        GITHUB_REPOSITORY nlohmann/json
-        VERSION 3.7.0)
+    NAME nlohmann_json
+    GITHUB_REPOSITORY nlohmann/json
+    VERSION 3.7.0)
 
 # spdlog
 CPMAddPackage(
@@ -32,9 +32,6 @@ CPMAddPackage(
 message(STATUS "Texugo: Tests enabled")
 enable_testing(true)
 add_subdirectory(tests)
-   
-add_executable(texugo_process
-    src/main/main.cpp)
 
 add_library(texugo STATIC
         src/com/Connection.cpp
@@ -50,7 +47,11 @@ target_include_directories(texugo
         ${CMAKE_CURRENT_SOURCE_DIR}/src
         ${TEXUGO_GEN_BINARY_DIR}/src)
 
-target_link_libraries(texugo_process
-    texugo
+target_link_libraries(texugo
     spdlog
     nlohmann_json)
+
+add_executable(texugo_process
+    src/main/main.cpp)
+
+target_link_libraries(texugo_process texugo)
