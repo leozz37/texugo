@@ -59,13 +59,3 @@ You can change the default route settings by changing the _routingAddresses_ arr
     }
   ]
 ```
-
-## Python files
-
-There're two pub files and one sub file. They work on the following way:
-
-| File name     | Run command                    |
-| ------------- | ------------------------------ |
-| `pub.py`      | `$ python pub.py 'Hello world'`|
-| `pub_loop.py` | `$ python pub_loop.py 5555`    |
-| `sub.py`      | `$ python sub.py 3000`         |
