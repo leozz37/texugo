@@ -26,6 +26,8 @@ addons:
         - IS_COVERAGE_BUILD=1
 
 before_install:
+    - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-certificates.crt
+    - chmod +x scripts/*
     - scripts/travis-before-install.sh
 
 script:
