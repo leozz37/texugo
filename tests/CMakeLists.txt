@@ -1,5 +1,5 @@
-# Downloading dependencies
-include(../cmake/CPM.cmake)
+# Including CPM
+include(${CPM_DOWNLOAD_LOCATION})
 
 # Gtest
 CPMAddPackage(
