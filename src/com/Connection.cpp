@@ -1,7 +1,8 @@
 #include "texugo/com/Connection.hpp"
 #include <iostream>
+#include <utility>
 
-Connection::Connection(const std::string& name, const std::string& port) : m_name(name), m_port(port) { }
+Connection::Connection(std::string  name, std::string  port) : m_name(std::move(name)), m_port(std::move(port)) { }
 
 void Connection::insertQueue(const std::string& message) {
     if (!m_watermark) {

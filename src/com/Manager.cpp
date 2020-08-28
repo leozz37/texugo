@@ -12,14 +12,18 @@ Manager::Manager(const std::unordered_map<std::string, std::string>& routingAddr
 
 void Manager::createConnection(const std::string& name, const std::string& port) {
     auto it = m_connectionList.find(name);
-    if (it == m_connectionList.end()) {
-        Connection cnx(name, port);
-        m_connectionList.insert({ name, cnx });
-        // TODO: fix logger constructor
-       Logger::getInstance().logInfo("Connection created | NAME: " + name + " - PORT: " + port);
+    try {
+        if (it == m_connectionList.end()) {
+            Connection cnx(name, port);
+            m_connectionList.insert({name, cnx});
+            // TODO: fix logger constructor
+            Logger::getInstance().logInfo("Connection created | NAME: " + name + " - PORT: " + port);
+        } else {
+            throw std::runtime_error("Connection NAME already exists");
+        }
     }
-    else {
-        throw std::runtime_error("Connection NAME already exists");
+    catch (std::exception const& e) {
+        Logger::getInstance().logInfo(e.what());
     }
 }
 
