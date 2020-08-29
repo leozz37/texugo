@@ -1,9 +1,11 @@
-#include <gtest/gtest.h>
+#include <catch2/catch.hpp>
 #include "texugo/com/Connection.hpp"
 
-class ConnectionFixture: public testing::Test {
+class ConnectionFixture {
 public:
-    void SetUp() override;
+    ConnectionFixture() {
+        m_connection = new Connection(m_name, m_port);
+    }
 
 protected:
     Connection *m_connection;
@@ -11,40 +13,36 @@ protected:
     const std::string m_port = "5555";
 };
 
-void ConnectionFixture::SetUp() {
-    m_connection = new Connection(m_name, m_port);
-}
-
-TEST_F(ConnectionFixture, GetName) {
+TEST_CASE_METHOD(ConnectionFixture, "GetName") {
     const std::string result = m_connection->getName();
-    ASSERT_EQ(result, m_name);
+    REQUIRE(result == m_name);
 }
 
-TEST_F(ConnectionFixture, GetPort) {
+TEST_CASE_METHOD(ConnectionFixture, "GetPort") {
     const std::string result = m_connection->getPort();
-    ASSERT_EQ(result, m_port);
+    REQUIRE(result == m_port);
 }
 
-TEST_F(ConnectionFixture, InsertQueue) {
+TEST_CASE_METHOD(ConnectionFixture, "InsertQueue") {
     const std::string message = "payload";
 
     m_connection->insertQueue(message);
 
     const std::size_t result = m_connection->getMessageQueue().size();
-    ASSERT_EQ(result, 1);
+    REQUIRE(result == 1);
 }
 
-TEST_F(ConnectionFixture, RemoveQueue) {
+TEST_CASE_METHOD(ConnectionFixture, "RemoveQueue") {
     const std::string message = "payload";
 
     m_connection->insertQueue(message);
     m_connection->removeQueue();
 
     const std::size_t result = m_connection->getMessageQueue().size();
-    ASSERT_EQ(result, 0);
+    REQUIRE(result == 0);
 }
 
-TEST_F(ConnectionFixture, ActivateWatermark) {
+TEST_CASE_METHOD(ConnectionFixture, "ActivateWatermark") {
     const std::string message = "payload";
 
     for (int i = 0; i < 21; i++) {
@@ -52,10 +50,10 @@ TEST_F(ConnectionFixture, ActivateWatermark) {
     }
 
     bool result = m_connection->getWatermark();
-    ASSERT_EQ(result, true);
+    REQUIRE(result == true);
 }
 
-TEST_F(ConnectionFixture, ActivateAndDeactivateWatermark) {
+TEST_CASE_METHOD(ConnectionFixture, "ActivateAndDeactivateWatermark") {
     const std::string message = "payload";
 
     for (int i = 0; i < 21; i++) {
@@ -64,20 +62,20 @@ TEST_F(ConnectionFixture, ActivateAndDeactivateWatermark) {
     m_connection->removeQueue();
 
     bool result = m_connection->getWatermark();
-    ASSERT_EQ(result, false);
+    REQUIRE(result == false);
 }
 
-TEST_F(ConnectionFixture, InsertQueueWatermarkOn) {
+TEST_CASE_METHOD(ConnectionFixture, "InsertQueueWatermarkOn") {
     const std::string message = "payload";
 
     m_connection->setWatermark(true);
     m_connection->insertQueue(message);
 
     const std::size_t result = m_connection->getMessageQueue().size();
-    ASSERT_EQ(result, 01);
+    REQUIRE(result == 01);
 }
 
-TEST_F(ConnectionFixture, InsertQueueFull) {
+TEST_CASE_METHOD(ConnectionFixture, "InsertQueueFull") {
     const std::string message = "payload";
 
     for (int i = 0; i < 21; i++) {
@@ -85,5 +83,5 @@ TEST_F(ConnectionFixture, InsertQueueFull) {
     }
 
     const std::size_t result = m_connection->getMessageQueue().size();
-    ASSERT_EQ(result, 20);
+    REQUIRE(result == 20);
 }

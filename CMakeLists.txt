@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18.0)
+cmake_minimum_required(VERSION 3.17.3)
 
 project(texugo
     VERSION 0.0.1
@@ -35,16 +35,16 @@ CPMAddPackage(
     GITHUB_REPOSITORY jupp0r/prometheus-cpp
     VERSION 0.9.0)
 
-message(STATUS "Texugo: Tests enabled")
-enable_testing(true)
+include(CTest)
+enable_testing()
 add_subdirectory(tests)
 
 add_library(texugo STATIC
-        src/com/Connection.cpp
-        src/com/Manager.cpp
-        src/config/Settings.cpp
-        src/log/Logger.cpp
-        src/metrics/MetricsExporter.cpp)
+      src/com/Connection.cpp
+      src/com/Manager.cpp
+      src/config/Settings.cpp
+      src/log/Logger.cpp
+      src/metrics/MetricsExporter.cpp)
 
 target_include_directories(texugo
     PUBLIC
