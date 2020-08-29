@@ -5,7 +5,6 @@ pull_requests:
 image: Visual Studio 2019
 
 platform:
-  - Win32
   - x64
 
 configuration:
@@ -18,7 +17,7 @@ init:
 build_script:
   - cmd: cmake -B build
   - cmd: cmake --build build
-
+  
 only_commits:
   files:
     - include/

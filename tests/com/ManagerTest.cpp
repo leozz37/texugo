@@ -1,25 +1,23 @@
-#include <gtest/gtest.h>
+#include <catch2/catch.hpp>
 #include "texugo/com/Manager.hpp"
 
-class ManagerFixture: public testing::Test {
+class ManagerFixture {
 public:
-    void SetUp() override;
+    ManagerFixture() {
+        std::unordered_map<std::string, std::string> routingAddresses;
+        const std::string port = "5555";
+        for (int i = 0; i < 5; i++) {
+            const std::string name = std::to_string(i);
+            routingAddresses.insert({ name, port });
+        }
+        manager = new Manager(routingAddresses);
+    }
 
 protected:
     Manager *manager;
 };
 
-void ManagerFixture::SetUp() {
-    std::unordered_map<std::string, std::string> routingAddresses;
-    const std::string port = "5555";
-    for (int i = 0; i < 5; i++) {
-        const std::string name = std::to_string(i);
-        routingAddresses.insert({ name, port });
-    }
-    manager = new Manager(routingAddresses);
-}
-
-TEST_F(ManagerFixture, CreateConnection) {
+TEST_CASE_METHOD(ManagerFixture, "CreateConnection") {
     const std::string name = "AAAAAAA";
     const std::string port = "5555";
 
@@ -27,23 +25,23 @@ TEST_F(ManagerFixture, CreateConnection) {
     auto key = manager->getConnectionList().find(name);
     bool result = key != manager->getConnectionList().end();
 
-    ASSERT_EQ(result, true);
+    REQUIRE(result == true);
 }
 
-TEST_F(ManagerFixture, FindConnectionDoesntExist) {
+TEST_CASE_METHOD(ManagerFixture, "FindConnectionDoesntExist") {
     const std::string name = "AAAAAAA";
 
     auto key = manager->getConnectionList().find(name);
     bool result = key != manager->getConnectionList().end();
 
-    ASSERT_EQ(result, false);
+    REQUIRE(result == false);
 }
 
-TEST_F(ManagerFixture, CreateConnectionNameAlreadyExists) {
+TEST_CASE_METHOD(ManagerFixture, "CreateConnectionNameAlreadyExists") {
     const std::string name = "AAAAAAA";
     const std::string port = "5555";
 
     manager->createConnection(name, port);
 
-    ASSERT_THROW(manager->createConnection(name, port), std::exception);
+    REQUIRE_THROWS(manager->createConnection(name, port));
 }

@@ -1,7 +1,4 @@
-#include <gtest/gtest.h>
-#include "texugo/com/Connection.hpp"
+#define CATCH_CONFIG_MAIN
+#include <catch2/catch.hpp>
 
-int main(int argc, char** argv) {
-    testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
-}
+TEST_CASE( "1: All test cases reside in other .cpp files (empty)", "[multi-file:1]" ) { }

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18.0)
+cmake_minimum_required(VERSION 3.17.3)
 
 project(texugo
     VERSION 0.0.1
@@ -29,15 +29,15 @@ CPMAddPackage(
     GITHUB_REPOSITORY gabime/spdlog
     VERSION 1.7.0)
 
-message(STATUS "Texugo: Tests enabled")
-enable_testing(true)
+include(CTest)
+enable_testing()
 add_subdirectory(tests)
 
 add_library(texugo STATIC
-        src/com/Connection.cpp
-        src/com/Manager.cpp
-        src/config/Settings.cpp
-        src/log/Logger.cpp)
+      src/com/Connection.cpp
+      src/com/Manager.cpp
+      src/config/Settings.cpp
+      src/log/Logger.cpp)
 
 target_include_directories(texugo
     PUBLIC
