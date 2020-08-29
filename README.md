@@ -8,7 +8,7 @@
 [![Documentation](https://codedocs.xyz/leozz37/texugo.svg)](https://codedocs.xyz/leozz37/texugo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Texugo is a flexible multiplatform server message switch and gateway using Modern C++ based on TCP/IP and MQ.
+Texugo is a flexible multiplatform server message switch and gateway using Modern C++ based on Boost Asio and MQ.
 
 ## Features
 

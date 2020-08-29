@@ -4,7 +4,7 @@
 
 class Connection {
 public:
-    Connection(const std::string&, const std::string&);
+    Connection(std::string , std::string );
     void insertQueue(const std::string&);
     void removeQueue();
     const std::string &getName() const;

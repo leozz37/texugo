@@ -1,0 +1,9 @@
+version: "3.8"
+
+services:
+  texugo:
+    build: .
+    container_name: "texugo"
+    network_mode: "host"
+    volumes:
+      - "$PWD/..:/dev/texugo"

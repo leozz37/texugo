@@ -1,8 +1,9 @@
 #include "texugo/config/Settings.hpp"
 #include <fstream>
 #include <nlohmann/json.hpp>
+#include <utility>
 
-Settings::Settings(const std::string& settingsPath) : m_settingsPath(settingsPath) {
+Settings::Settings(std::string  settingsPath) : m_settingsPath(std::move(settingsPath)) {
     nlohmann::json data = getServerConfigs();
     m_metricsAddress = data["settings"]["metricsAddress"];
     m_mongoPath = data["settings"]["mongoPath"];
@@ -27,9 +28,9 @@ const std::unordered_map<std::string, std::string> &Settings::getRoutingAddresse
 }
 
 void Settings::setRoutingAddresses(nlohmann::json data) {
-    for (auto address : data["routingAddresses"]) {
-        auto data = address.get<std::map<std::string, std::string>>();
-        m_routingAddresses.insert(data.begin(), data.end());
+    for (const auto& address : data["routingAddresses"]) {
+        auto dataAddress = address.get<std::map<std::string, std::string>>();
+        m_routingAddresses.insert(dataAddress.begin(), dataAddress.end());
     }
 }
 
