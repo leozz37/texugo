@@ -10,7 +10,7 @@ platform:
 configuration:
   - Release
 
-inti:
+init:
   - cmd: cmake --version
   - cmd: msbuild /version
 
