@@ -15,10 +15,6 @@ inti:
   - cmd: msbuild /version
 
 build_script:
-  - cmd: cmake -B build
-  - cmd: cmake --build build
-
-build_script:
   - cd ./docker
   - docker build -t texugo .
   
