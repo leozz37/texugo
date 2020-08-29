@@ -10,12 +10,12 @@ CPMAddPackage(
 add_executable(unit_tests
         com/ConnectionTest.cpp
         com/ManagerTest.cpp
-        config/SettingsTest.cpp main/main.cpp)
+        config/SettingsTest.cpp
+        main/main.cpp)
 
 target_link_libraries(unit_tests
         texugo
         Catch2)
 
 enable_testing()
-
 add_test(NAME unit_tests COMMAND unit_tests)
