@@ -4,12 +4,11 @@ pull_requests:
 
 image: Visual Studio 2019
 
-platform:
-  - Win32
-  - x64
+# platform:
+#   - x64
 
-configuration:
-  - Release
+# configuration:
+#   - Release
 
 install:
   - docker version
@@ -17,13 +16,4 @@ install:
 build_script:
   - cd ./docker
   - docker build -t texugo .
-
-only_commits:
-  files:
-    - docker/
-    - include/
-    - resources/
-    - src/
-    - tests/
-    - appveyor.yml
-    - CMakeLists.txt
+  
