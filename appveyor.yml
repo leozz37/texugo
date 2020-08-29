@@ -25,4 +25,4 @@ only_commits:
     - src/
     - tests/
     - appveyor.yml
-    -CMakeLists.txt
+    - CMakeLists.txt
