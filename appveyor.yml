@@ -11,16 +11,15 @@ platform:
 configuration:
   - Release
 
-init:
-  - cmd: cmake --version
-  - cmd: msbuild /version
+install:
+  - docker version
 
 build_script:
-  - cmd: cmake -B build
-  - cmd: cmake --build build
+  - docker build -t texugo .
 
 only_commits:
   files:
+    - docker/
     - include/
     - resources/
     - src/

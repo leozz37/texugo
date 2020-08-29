@@ -16,7 +16,7 @@ Texugo is a flexible multiplatform server message switch and gateway using Moder
 - Reliably serve devices across multiple networks;
 - TODO: Storing messages and logs on [MongoDB](https://www.mongodb.com/) (or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas));
 - Logging support with [spdlog](https://github.com/gabime/spdlog);
-- TODO: Metrics monitoring with [Prometheus](https://prometheus.io/);
+- Metrics monitoring with [Prometheus](https://prometheus.io/);
 - TODO: Data visualization with [Grafana](https://grafana.com/);
 - Support to build and run the binary on [Docker](https://www.docker.com/);
 - Support to docker-compose to run all the services dependencies;
