@@ -9,11 +9,11 @@ public:
     Logger& operator = (const Logger& other) noexcept = delete;
     Logger& operator = (Logger&& other) noexcept = delete;
 
-    void openLogFile(const std::string&);
+    void openLogFile();
     void logInfo(const std::string&);
     void logWarn(const std::string&);
     static Logger& getInstance();
 
 private:
-    Logger() noexcept = default;
+    Logger() noexcept;
 };

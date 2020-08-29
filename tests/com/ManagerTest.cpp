@@ -45,5 +45,5 @@ TEST_F(ManagerFixture, CreateConnectionNameAlreadyExists) {
 
     manager->createConnection(name, port);
 
-    ASSERT_THROW(manager->createConnection(name, port), std::runtime_error);
+    ASSERT_THROW(manager->createConnection(name, port), std::exception);
 }
