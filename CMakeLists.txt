@@ -29,12 +29,6 @@ CPMAddPackage(
     GITHUB_REPOSITORY gabime/spdlog
     VERSION 1.7.0)
 
-# prometheus
-CPMAddPackage(
-    NAME prometheus-cpp
-    GITHUB_REPOSITORY jupp0r/prometheus-cpp
-    VERSION 0.9.0)
-
 include(CTest)
 enable_testing()
 add_subdirectory(tests)
@@ -43,8 +37,7 @@ add_library(texugo STATIC
       src/com/Connection.cpp
       src/com/Manager.cpp
       src/config/Settings.cpp
-      src/log/Logger.cpp
-      src/metrics/MetricsExporter.cpp)
+      src/log/Logger.cpp)
 
 target_include_directories(texugo
     PUBLIC
@@ -56,8 +49,7 @@ target_include_directories(texugo
 
 target_link_libraries(texugo
     spdlog
-    nlohmann_json
-    prometheus-cpp::pull)
+    nlohmann_json)
 
 add_executable(texugo_process
     src/main/main.cpp)
