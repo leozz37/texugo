@@ -5,6 +5,7 @@ FROM ubuntu:groovy
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
+RUN apt-get update -y
 RUN apt-get install -y build-essential \
                        libssl-dev \
                        wget \
@@ -14,7 +15,7 @@ RUN apt-get install -y build-essential \
 ARG cmake_version=3.17.3
 RUN wget https://github.com/Kitware/CMake/releases/download/v${cmake_version}/cmake-${cmake_version}.tar.gz && \
     tar -zxvf cmake-${cmake_version}.tar.gz
-WORKDIR cmake-${cmake_version}
+WORKDIR $PWD/cmake-${cmake_version}
 RUN ./bootstrap && \
     make -j8 && \
     make install
