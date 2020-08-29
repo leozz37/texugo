@@ -4,10 +4,8 @@ FROM ubuntu:groovy
 # Disable interactive cli
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Updates and dependencies install
-RUN apt-get update -y && \
-    apt-get upgrade -y && \
-    apt-get install -y build-essential \
+# Install dependencies
+RUN apt-get install -y build-essential \
                        libssl-dev \
                        wget \
                        git
