@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.17.3)
+cmake_minimum_required(VERSION 3.16.3)
 
 project(texugo
     VERSION 0.0.1
@@ -21,7 +21,7 @@ include(${CPM_DOWNLOAD_LOCATION})
 CPMAddPackage(
     NAME nlohmann_json
     GITHUB_REPOSITORY nlohmann/json
-    VERSION 3.7.0)
+    VERSION 3.9.1)
 
 # spdlog
 CPMAddPackage(
