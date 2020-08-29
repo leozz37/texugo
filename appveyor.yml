@@ -17,7 +17,7 @@ init:
 build_script:
   - cmd: cmake -B build
   - cmd: cmake --build build
-  
+
 only_commits:
   files:
     - include/

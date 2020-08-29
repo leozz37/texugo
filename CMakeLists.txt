@@ -21,7 +21,7 @@ include(${CPM_DOWNLOAD_LOCATION})
 CPMAddPackage(
     NAME nlohmann_json
     GITHUB_REPOSITORY nlohmann/json
-    VERSION 3.7.0)
+    VERSION 3.9.1)
 
 # spdlog
 CPMAddPackage(
