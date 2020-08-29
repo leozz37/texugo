@@ -15,8 +15,8 @@ init:
   - cmd: msbuild /version
 
 build_script:
-  - cd ./docker
-  - docker build -t texugo .
+  - cmd: cmake -B build
+  - cmd: cmake --build build
   
 only_commits:
   files:
