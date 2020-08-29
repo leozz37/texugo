@@ -5,11 +5,12 @@ FROM ubuntu:groovy
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
-RUN apt-get update -y
-RUN apt-get install -y build-essential \
-                       libssl-dev \
-                       wget \
-                       git
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libssl-dev \
+    wget \
+    git \
+ && rm -rf /var/lib/apt/lists/*
 
 # Install CMake 17
 ARG cmake_version=3.17.3
