@@ -11,15 +11,16 @@ Texugo is a flexible multiplatform server message switch and gateway using Moder
 
 ## Features
 
-- End-to-end system that process messages, supporting [RabbitMQ](https://www.rabbitmq.com/) and [Boost.ASIO](https://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio.html);
+- End-to-end system that process messages, using [Boost.ASIO](https://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio.html);
 - Flexible port binding;
 - Reliably serve devices across multiple networks;
-- TODO: Storing messages and logs on [MongoDB](https://www.mongodb.com/) (or [MongoDB Atlas](https://www.mongodb.com/cloud/atlas));
 - Logging support with [spdlog](https://github.com/gabime/spdlog);
-- Metrics monitoring with [Prometheus](https://prometheus.io/);
-- TODO: Data visualization with [Grafana](https://grafana.com/);
+- Unit tests using [Catch2](https://github.com/catchorg/Catch20;
 - Support to build and run the binary on [Docker](https://www.docker.com/);
 - Support to docker-compose to run all the services dependencies;
+- TODO: Storing messages and logs on [MongoDB](https://www.mongodb.com/);
+- TODO: Metrics monitoring with [Prometheus](https://prometheus.io/);
+- TODO: Data visualization with [Grafana](https://grafana.com/);
 
 ## Installation
 
@@ -34,6 +35,28 @@ Follow these steps:
 `$ mkdir build && cd build`
 
 `$ cmake .. && make`
+
+### Running Tests
+
+```
+$ cd build/tests
+
+$ ctest -V
+```
+
+## Docker
+
+Building the image:
+
+`$ docker build . -t texugo`
+
+Running the image:
+
+`$ docker run -v $PWD/..:/dev/texugo texugo`
+
+Running docker compose
+
+`$ docker-compose up`
 
 ## Server Configs
 
