@@ -13,6 +13,7 @@ addons:
         packages:
             - g++-9
             - gcc-9
+            - lcov
     coverity_scan:
         project:
             name: "leozz37/texugo"
@@ -25,17 +26,20 @@ addons:
         - COMPILER=g++-9
         - IS_COVERAGE_BUILD=1
 
-before_install:
-    - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-certificates.crt
-    - pip install --user cpp-coveralls
 
 script:
     - mkdir build && cd build
     - cmake -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9 --coverage ..
     - make -j2
+    - cd ../build/tests/
+    - make -j2
+    - ctest -j2
 
 after_success:
-    - coveralls -e examples -e tests --gcov-options '\-lp'
+    - lcov --capture --directory . --output-file coverage.info
+    - lcov --remove coverage.info '/usr/*' --output-file coverage.info
+    - lcov --list coverage.info
+    - bash <(curl -s https://codecov.io/bash) -f coverage.info -t $CODECOV_TOKEN|| echo "Codecov did not collect coverage reports"
 
 notifications:
     email: false
