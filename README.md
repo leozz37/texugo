@@ -15,7 +15,7 @@ Texugo is a flexible multiplatform server message switch and gateway using Moder
 - Flexible port binding;
 - Reliably serve devices across multiple networks;
 - Logging support with [spdlog](https://github.com/gabime/spdlog);
-- Unit tests using [Catch2](https://github.com/catchorg/Catch20;
+- Unit tests using [Catch2](https://github.com/catchorg/Catch20);
 - Support to build and run the binary on [Docker](https://www.docker.com/);
 - Support to docker-compose to run all the services dependencies;
 - TODO: Storing messages and logs on [MongoDB](https://www.mongodb.com/);
