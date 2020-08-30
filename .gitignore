@@ -37,6 +37,7 @@
 /.vscode
 /cmake-build-debug
 /build
+/build-docker
 
 # CMake
 /cmake

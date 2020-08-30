@@ -41,5 +41,12 @@ after_success:
     - lcov --list coverage.info
     - bash <(curl -s https://codecov.io/bash) -f coverage.info -t $CODECOV_TOKEN|| echo "Codecov did not collect coverage reports"
 
+deploy:
+    provider: script
+    skip-cleanup: true
+    script: bash scripts/travis-deploy.sh
+    on:
+        branch: master
+
 notifications:
     email: false

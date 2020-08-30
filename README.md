@@ -57,6 +57,10 @@ Running docker compose
 
 `$ docker-compose up`
 
+### DockerHub Image
+
+You can find the latest image version [here](https://hub.docker.com/repository/docker/leozz37/texugo);
+
 ## Server Configs
 
 You can change the default route settings by changing the _routingAddresses_ array on the resources/settings.json file.
