@@ -12,6 +12,7 @@ public:
         }
         manager = new Manager(routingAddresses);
     }
+    ManagerFixture( const ManagerFixture &obj);
 
 protected:
     Manager *manager;
