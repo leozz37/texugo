@@ -1,5 +1,6 @@
 # Texugo
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8633b672153c442e8ddebc952b102eec)](https://app.codacy.com/manual/leozz37/texugo?utm_source=github.com&utm_medium=referral&utm_content=leozz37/texugo&utm_campaign=Badge_Grade_Dashboard)
 [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/texugo/badge)](https://www.codefactor.io/repository/github/leozz37/texugo)
 [![Build Status](https://travis-ci.com/leozz37/texugo.svg?branch=master)](https://travis-ci.com/leozz37/texugo)
 [![Build status](https://ci.appveyor.com/api/projects/status/qqp2al1e827jx70m?svg=true)](https://ci.appveyor.com/project/leozz37/texugo)
