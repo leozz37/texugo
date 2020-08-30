@@ -1,5 +1,6 @@
 # Texugo
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/555c8f8825504a81804f4c41b75228cf)](https://www.codacy.com/manual/leozz37/texugo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leozz37/texugo&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/texugo/badge)](https://www.codefactor.io/repository/github/leozz37/texugo)
 [![Build Status](https://travis-ci.com/leozz37/texugo.svg?branch=master)](https://travis-ci.com/leozz37/texugo)
 [![Build status](https://ci.appveyor.com/api/projects/status/qqp2al1e827jx70m?svg=true)](https://ci.appveyor.com/project/leozz37/texugo)
@@ -11,16 +12,16 @@ Texugo is a flexible multiplatform server message switch using Modern C++ based 
 
 ## Features
 
-- End-to-end system that process messages, using [Boost.ASIO](https://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio.html);
-- Flexible port binding;
-- Reliably serve devices across multiple networks;
-- Logging support with [spdlog](https://github.com/gabime/spdlog);
-- Unit tests using [Catch2](https://github.com/catchorg/Catch20);
-- Support to build and run the binary on [Docker](https://www.docker.com/);
-- Support to docker-compose to run all the services dependencies;
-- TODO: Storing messages and logs on [MongoDB](https://www.mongodb.com/);
-- TODO: Metrics monitoring with [Prometheus](https://prometheus.io/);
-- TODO: Data visualization with [Grafana](https://grafana.com/);
+-   End-to-end system that process messages, using [Boost.ASIO](https://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio.html);
+-   Flexible port binding;
+-   Reliably serve devices across multiple networks;
+-   Logging support with [spdlog](https://github.com/gabime/spdlog);
+-   Unit tests using [Catch2](https://github.com/catchorg/Catch20);
+-   Support to build and run the binary on [Docker](https://www.docker.com/);
+-   Support to docker-compose to run all the services dependencies;
+-   TODO: Storing messages and logs on [MongoDB](https://www.mongodb.com/);
+-   TODO: Metrics monitoring with [Prometheus](https://prometheus.io/);
+-   TODO: Data visualization with [Grafana](https://grafana.com/);
 
 ## Installation
 
@@ -38,11 +39,9 @@ Follow these steps:
 
 ### Running Tests
 
-```
-$ cd build/tests
+`$ cd build/tests`
 
-$ ctest -V
-```
+`$ ctest -V`
 
 ## Docker
 
