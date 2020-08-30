@@ -18,4 +18,8 @@ target_link_libraries(unit_tests
         Catch2)
 
 enable_testing()
+
 add_test(NAME unit_tests COMMAND unit_tests)
+
+target_compile_options(unit_tests PUBLIC -O0 -g -fprofile-arcs -ftest-coverage)
+target_link_options(unit_tests PUBLIC -fprofile-arcs -ftest-coverage)
