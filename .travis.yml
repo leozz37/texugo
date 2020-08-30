@@ -33,7 +33,7 @@ script:
     - make -j2
     - cd ../build/tests/
     - make -j2
-    - ctest -j2
+    - ctest -V
 
 after_success:
     - lcov --capture --directory . --output-file coverage.info
