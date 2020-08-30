@@ -29,6 +29,7 @@ CPMAddPackage(
     GITHUB_REPOSITORY gabime/spdlog
     VERSION 1.7.0)
 
+add_compile_options(--coverage -O0)
 include(CTest)
 enable_testing()
 add_subdirectory(tests)

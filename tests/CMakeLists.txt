@@ -1,8 +1,6 @@
 # Including CPM
 include(${CPM_DOWNLOAD_LOCATION})
 
-add_compile_options(--coverage -O0)
-
 # Catch2
 CPMAddPackage(
     NAME Catch2
