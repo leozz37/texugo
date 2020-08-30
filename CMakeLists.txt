@@ -54,4 +54,5 @@ target_link_libraries(texugo
 add_executable(texugo_process
     src/main/main.cpp)
 
+target_link_libraries(texugo --coverage)
 target_link_libraries(texugo_process texugo)
