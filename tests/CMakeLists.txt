@@ -1,6 +1,8 @@
 # Including CPM
 include(${CPM_DOWNLOAD_LOCATION})
 
+add_compile_options(--coverage -O0)
+
 # Catch2
 CPMAddPackage(
     NAME Catch2
@@ -18,7 +20,6 @@ target_link_libraries(texugo_tests
         Catch2)
 
 enable_testing()
-add_compile_options(--coverage -O0)
 target_link_libraries(texugo_tests --coverage)
 add_test(NAME texugo_tests COMMAND texugo_tests)
 
