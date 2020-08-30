@@ -3,8 +3,9 @@
 
 class ConnectionFixture {
 public:
-    ConnectionFixture() : m_connection(new Connection(m_name, m_port)) { }
-    ConnectionFixture(const ConnectionFixture &obj);
+    ConnectionFixture() {
+        m_connection = new Connection(m_name, m_port);
+    }
 
 protected:
     Connection *m_connection;

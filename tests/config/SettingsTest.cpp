@@ -3,8 +3,9 @@
 
  class SettingsFixture {
  public:
-     SettingsFixture() : settings(new Settings(configPath)) { }
-     SettingsFixture( const SettingsFixture  &obj);
+     SettingsFixture() {
+         settings = new Settings(configPath);
+     }
 
  protected:
      const std::string configPath = "../../resources/settings.json";
