@@ -35,9 +35,12 @@
 # IDE
 /.idea
 /.vscode
-/cmake-build-debug
+
+# Build and binaries
 /build
 /build-docker
+/bin
+/cmake-build-debug
 
 # CMake
 /cmake
