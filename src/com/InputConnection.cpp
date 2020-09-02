@@ -36,10 +36,10 @@ void Server::doAccept() {
 }
 
 // InputConnection Constructor
-InputConnection::InputConnection(short port) {
+InputConnection::InputConnection(boost::asio::io_context& io_context, short port) {
     try {
-        boost::asio::io_context io_context;
         Server s(io_context, port);
+        Logger::getInstance().logInfo("INPUT CNX OPENED AT: " + std::to_string(port));
         io_context.run();
     }
     catch (std::exception& e) {

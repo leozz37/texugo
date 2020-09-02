@@ -35,7 +35,7 @@ CPMFindPackage(
     NAME Boost
     GITHUB_REPOSITORY Orphis/boost-cmake
     VERSION 1.67.0
-    FIND_PACKAGE_ARGUMENTS "COMPONENTS system")
+    FIND_PACKAGE_ARGUMENTS "COMPONENTS system thread")
 
 add_compile_options(--coverage -O0)
 enable_testing()

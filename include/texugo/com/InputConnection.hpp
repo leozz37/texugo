@@ -41,5 +41,5 @@ private:
 // InputConnection Class
 class InputConnection {
 public:
-    explicit InputConnection(short port);
+    InputConnection(boost::asio::io_context&, short);
 };
