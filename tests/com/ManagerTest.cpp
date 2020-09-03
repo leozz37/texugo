@@ -19,11 +19,11 @@ protected:
     boost::asio::io_context m_ioStream;
 };
 
-TEST_CASE_METHOD(ManagerFixture, "CreateConnectionNameAlreadyExists") {
-    const std::string name = "AAAAAAA";
-    short port = 5555;
-
-    manager->createConnection(name, port);
-
-    REQUIRE_THROWS(manager->createConnection(name, port));
-}
+//TEST_CASE_METHOD(ManagerFixture, "CreateConnectionNameAlreadyExists") {
+//    const std::string name = "AAAAAAA";
+//    short port = 5555;
+//
+//    manager->createConnection(name, port);
+//
+//    REQUIRE_THROWS(manager->createConnection(name, port));
+//}
