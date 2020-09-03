@@ -42,7 +42,7 @@ private:
 class InputConnection {
 public:
     InputConnection(boost::asio::io_context&, short);
-    void start();
+    void start() const;
 
 private:
     boost::asio::io_context& m_io_context;

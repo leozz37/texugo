@@ -16,7 +16,10 @@ int main(int argc, char** argv) {
     boost::asio::io_context io_context;
     boost::thread_group threads;
 
-    threads.create_thread( std::bind(&InputConnection::start, InputConnection(io_context, short(5555))));
+    threads.create_thread(
+            [ObjectPtr = InputConnection(io_context, short(5555))] {
+                ObjectPtr.start();
+            });
 
     threads.join_all();
     return 0;
