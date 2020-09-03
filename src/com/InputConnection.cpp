@@ -8,7 +8,7 @@ void Session::doRead() {
     m_socket.async_read_some(boost::asio::buffer(m_data, maxLength),
                              [this, self](boost::system::error_code ec, std::size_t length) {
                                  if (!ec) {
-                                     Logger::getInstance().logInfo("Message received");
+                                     Logger::getInstance().logInfo(m_data);
                                      doWrite(length);
                                  }
                              });

@@ -1,7 +1,8 @@
 import socket
+import sys
 
 host = "127.0.0.1"
-port = 5555
+port = int(sys.argv[1])
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((host, port))
 while(1):
