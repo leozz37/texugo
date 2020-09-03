@@ -14,7 +14,10 @@ int main(int argc, char** argv) {
 
 //    Manager manager(settings.getRoutingAddresses());
     boost::asio::io_context io_context;
-    InputConnection ic(io_context, short(5555));
+    boost::thread_group threads;
 
+    threads.create_thread( std::bind(&InputConnection::start, InputConnection(io_context, short(5555))));
+
+    threads.join_all();
     return 0;
 }

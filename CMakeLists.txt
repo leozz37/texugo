@@ -59,7 +59,8 @@ target_include_directories(texugo
 target_link_libraries(texugo
     spdlog
     nlohmann_json
-    Boost::system)
+    Boost::system
+    Boost::thread)
 
 add_executable(texugo_process
     src/main/main.cpp)
