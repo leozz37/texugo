@@ -45,7 +45,8 @@ add_library(texugo STATIC
     src/com/Connection.cpp
     src/com/Manager.cpp
     src/config/Settings.cpp
-    src/log/Logger.cpp)
+    src/log/Logger.cpp
+    src/process/QueueManager.cpp)
 
 target_include_directories(texugo
     PUBLIC
