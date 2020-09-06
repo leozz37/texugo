@@ -34,15 +34,3 @@ public:
 private:
     tcp::acceptor m_acceptor;
 };
-
-// Connection Class
-class Connection {
-public:
-    Connection(boost::asio::io_context&, short);
-    void start() const;
-    short getPort() const;
-
-private:
-    boost::asio::io_context& m_io_context;
-    short m_port;
-};

@@ -24,7 +24,7 @@ void Session::doWrite(std::size_t length) {
                              });
 }
 
-// Class Methods
+// Server Methods
 void Server::doAccept() {
     m_acceptor.async_accept(
             [this](boost::system::error_code ec, tcp::socket socket) {
@@ -33,25 +33,4 @@ void Server::doAccept() {
                 }
                 doAccept();
             });
-}
-
-// Connection
-Connection::Connection(boost::asio::io_context& io_context, short port)
-               : m_io_context(io_context), m_port(port) { }
-
-void Connection::start() const {
-    try {
-        Server s(m_io_context, m_port);
-        s.doAccept();
-        Logger::getInstance().logInfo("INPUT CNX OPENED AT: " + std::to_string(m_port));
-        m_io_context.run();
-    }
-    catch (std::exception& e) {
-        Logger::getInstance().logWarn(e.what());
-        std::cerr << "Exception: " << e.what() << "\n";
-    }
-}
-
-short Connection::getPort() const {
-    return m_port;
 }
