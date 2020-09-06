@@ -25,7 +25,7 @@ void Session::doWrite(std::size_t length) {
 }
 
 // Server Methods
-void Server::doAccept() {
+void Connection::doAccept() {
     m_acceptor.async_accept(
             [this](boost::system::error_code ec, tcp::socket socket) {
                 if (!ec) {

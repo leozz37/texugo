@@ -12,11 +12,10 @@ Manager::Manager(const std::unordered_map<std::string, std::string>& routingAddr
 //        createConnection(name, port);
 //    }
 
-    Server server(m_ioContext, short(5555));
+    Connection server(m_ioContext, short(5555));
     server.doAccept();
 
     m_ioContext.run();
-
     m_threads.join_all();
 }
 
