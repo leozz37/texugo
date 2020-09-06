@@ -54,7 +54,3 @@ void Connection::start() const {
 short Connection::getPort() const {
     return m_port;
 }
-
-const std::string &Connection::getName() const {
-    return m_name;
-}

@@ -44,10 +44,8 @@ public:
     Connection(boost::asio::io_context&, short);
     void start() const;
     short getPort() const;
-    const std::string &getName() const;
 
 private:
     boost::asio::io_context& m_io_context;
     short m_port;
-    std::string m_name;
 };
