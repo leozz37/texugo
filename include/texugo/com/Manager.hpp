@@ -8,12 +8,10 @@
 
 class Manager {
 public:
-    Manager(const std::unordered_map<std::string, std::string>&, boost::asio::io_context&);
-    void createConnection(const std::string&, short);
+    Manager(const std::unordered_map<std::string, std::string>&);
+    void createConnection(boost::asio::io_service&, const std::string&, short);
     void startConnections();
 
 private:
-    boost::asio::io_context& m_ioContext;
-    boost::thread_group m_threads;
     std::unordered_map<std::string, std::unique_ptr<Connection>> m_connectionList;
 };

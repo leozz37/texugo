@@ -11,12 +11,11 @@ public:
             const std::string name = std::to_string(i);
             routingAddresses.insert({ name, port });
         }
-        manager = new Manager(routingAddresses, m_ioStream);
+        manager = new Manager(routingAddresses);
     }
 
 protected:
     Manager *manager;
-    boost::asio::io_context m_ioStream;
 };
 
 //TEST_CASE_METHOD(ManagerFixture, "CreateConnectionNameAlreadyExists") {

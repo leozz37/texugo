@@ -1,7 +1,6 @@
 #include "texugo/config/Settings.hpp"
 #include "texugo/com/Manager.hpp"
 #include "texugo/log/Logger.hpp"
-#include <boost/asio.hpp>
 #include <csignal>
 #include <memory>
 
@@ -18,11 +17,7 @@ int main() {
     const std::string settingsPath = "../../resources/settings.json";
     Settings settings(settingsPath);
 
-    boost::asio::io_context io_context;
-    boost::asio::io_context::work work(io_context);
-    boost::thread_group threads;
-
-    Manager manager(settings.getRoutingAddresses(), io_context);
+    Manager manager(settings.getRoutingAddresses());
 
     return 0;
 }
