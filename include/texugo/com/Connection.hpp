@@ -28,13 +28,10 @@ private:
 class Server {
 public:
     Server(boost::asio::io_context& io_context, short port)
-            :  m_acceptor(io_context, tcp::endpoint(tcp::v4(), port)) {
-        doAccept();
-    }
-
-private:
+            :  m_acceptor(io_context, tcp::endpoint(tcp::v4(), port)) { }
     void doAccept();
 
+private:
     tcp::acceptor m_acceptor;
 };
 

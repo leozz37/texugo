@@ -42,6 +42,7 @@ Connection::Connection(boost::asio::io_context& io_context, short port)
 void Connection::start() const {
     try {
         Server s(m_io_context, m_port);
+        s.doAccept();
         Logger::getInstance().logInfo("INPUT CNX OPENED AT: " + std::to_string(m_port));
         m_io_context.run();
     }
