@@ -1,9 +1,10 @@
 #pragma once
 #include "texugo/log/Logger.hpp"
-#include <boost/asio.hpp>
 #include <cstdlib>
 #include <iostream>
 #include <memory>
+#include <queue>
+#include <boost/asio.hpp>
 
 using boost::asio::ip::tcp;
 
@@ -30,7 +31,9 @@ public:
     Connection(boost::asio::io_context& io_context, short port)
         :  m_acceptor(io_context, tcp::endpoint(tcp::v4(), port)) { }
     void doAccept();
+    void insertQueue(const std::string&);
 
 private:
     tcp::acceptor m_acceptor;
+    std::queue<std::string> m_messageQueue;
 };

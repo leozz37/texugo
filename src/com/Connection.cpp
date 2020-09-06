@@ -24,7 +24,7 @@ void Session::doWrite(std::size_t length) {
                              });
 }
 
-// Server Methods
+// Connection Methods
 void Connection::doAccept() {
     m_acceptor.async_accept(
             [this](boost::system::error_code ec, tcp::socket socket) {
@@ -33,4 +33,8 @@ void Connection::doAccept() {
                 }
                 doAccept();
             });
+}
+
+void Connection::insertQueue(const std::string& message) {
+   m_messageQueue.push(message);
 }
