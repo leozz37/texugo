@@ -6,9 +6,9 @@
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
 
-class Manager {
+class ConnectionManager {
 public:
-    Manager(const std::unordered_map<std::string, std::string>&);
+    ConnectionManager(const std::unordered_map<std::string, std::string>&);
     void createConnection(boost::asio::io_service&, const std::string&, short);
     void startConnections();
 

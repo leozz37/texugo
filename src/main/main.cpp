@@ -1,5 +1,5 @@
 #include "texugo/config/Settings.hpp"
-#include "texugo/com/Manager.hpp"
+#include "texugo/com/ConnectionManager.hpp"
 #include "texugo/log/Logger.hpp"
 #include <csignal>
 #include <memory>
@@ -17,7 +17,7 @@ int main() {
     const std::string settingsPath = "../../resources/settings.json";
     Settings settings(settingsPath);
 
-    Manager manager(settings.getRoutingAddresses());
+    ConnectionManager manager(settings.getRoutingAddresses());
 
     return 0;
 }

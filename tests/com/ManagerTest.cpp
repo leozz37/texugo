@@ -1,4 +1,4 @@
-#include "texugo/com/Manager.hpp"
+#include "texugo/com/ConnectionManager.hpp"
 #include <catch2/catch.hpp>
 #include <boost/asio.hpp>
 
@@ -11,11 +11,11 @@ public:
             const std::string name = std::to_string(i);
             routingAddresses.insert({ name, port });
         }
-        manager = new Manager(routingAddresses);
+        manager = new ConnectionManager(routingAddresses);
     }
 
 protected:
-    Manager *manager;
+    ConnectionManager *manager;
 };
 
 //TEST_CASE_METHOD(ManagerFixture, "CreateConnectionNameAlreadyExists") {

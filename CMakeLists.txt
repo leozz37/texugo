@@ -43,7 +43,7 @@ add_subdirectory(tests)
 
 add_library(texugo STATIC
     src/com/Connection.cpp
-    src/com/Manager.cpp
+        src/com/ConnectionManager.cpp
     src/config/Settings.cpp
     src/log/Logger.cpp
     src/process/QueueManager.cpp)
