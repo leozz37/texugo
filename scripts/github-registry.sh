@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Github Login
-docker login docker.pkg.github.com -u "${GITHUB_USER}" --password "${GITHUB_TOKEN}"
+echo "${GITHUB_TOKEN}" | docker login docker.pkg.github.com -u "${GITHUB_USER}" --password-stdin
 
 cd "$TRAVIS_BUILD_DIR"/docker || exit
 docker-compose build --pull
