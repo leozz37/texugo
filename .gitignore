@@ -43,3 +43,6 @@
 
 # logs
 /log
+
+# Frontend
+*node_modules*
