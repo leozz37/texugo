@@ -1,7 +1,6 @@
 <template>
-  <div id="app">
-    <img alt="Texugo logo" src="./assets/logo.jpg">
-    <HelloWorld msg="Texugo"/>
+  <div class="texugo-logo">
+        <img src="./assets/logo.png" width="500">
   </div>
 </template>
 
@@ -9,12 +8,10 @@
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  .texugo-logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
 </style>
