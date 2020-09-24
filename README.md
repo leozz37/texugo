@@ -31,39 +31,51 @@ Follow these steps:
 
 ### Clone this repository
 
-`$ git clone https://github.com/leozz37/texugo.git`
+```bash
+$ git clone https://github.com/leozz37/texugo.git
+```
 
 ### Create a build directory and build binary
 
-`$ mkdir build && cd build`
+```bash
+$ mkdir build && cd build
 
-`$ cmake .. && make`
+$ cmake .. && make
+```
 
 ### Running Tests
 
-`$ cd build/tests`
+```bash
+$ cd build/tests
 
-`$ ctest -V`
+$ ctest -V
+```
 
 ## Docker
 
 Building the image:
 
-`$ docker build . -t texugo`
+```bash
+$ docker build . -t texugo
+```
 
 Running the image:
 
-`$ docker run -v $PWD/..:/dev/texugo texugo`
+```bash
+$ docker run -v $PWD/..:/dev/texugo texugo
+```
 
 Running docker compose
 
-`$ docker-compose up`
+```bash
+$ docker-compose up
+```
 
 ## Server Configs
 
 You can change the default route settings by changing the _routingAddresses_ array on the resources/settings.json file.
 
-```settings.json
+```JSON
 
 "routingAddresses": [
     {
