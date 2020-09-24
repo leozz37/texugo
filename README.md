@@ -10,7 +10,7 @@
 [![Documentation](https://codedocs.xyz/leozz37/texugo.svg)](https://codedocs.xyz/leozz37/texugo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Texugo is a flexible multiplatform server message switch using Modern C++ based on Boost Asio.
+[Texugo](https://leozz37.github.io/texugo/) is a flexible multiplatform server message switch using Modern C++ based on Boost Asio.
 
 ## Features
 
