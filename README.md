@@ -6,6 +6,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/texugo/badge)](https://www.codefactor.io/repository/github/leozz37/texugo)
 [![Build Status](https://travis-ci.com/leozz37/texugo.svg?branch=master)](https://travis-ci.com/leozz37/texugo)
 [![Build status](https://ci.appveyor.com/api/projects/status/qqp2al1e827jx70m?svg=true)](https://ci.appveyor.com/project/leozz37/texugo)
+![CodeQL](https://github.com/leozz37/texugo/workflows/CodeQL/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/leozz37/texugo/branch/master/graph/badge.svg)](https://codecov.io/gh/leozz37/texugo)
 [![Documentation](https://codedocs.xyz/leozz37/texugo.svg)](https://codedocs.xyz/leozz37/texugo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -40,7 +41,9 @@ $ git clone https://github.com/leozz37/texugo.git
 ```bash
 $ mkdir build && cd build
 
-$ cmake .. && make
+$ cmake ..
+
+$ make -j4
 ```
 
 ### Running Tests
