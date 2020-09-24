@@ -1,6 +1,6 @@
 <template>
   <div class="texugo-logo">
-        <img src="./assets/logo.png" width="500">
+    <img src="./assets/logo.png" width="600">
   </div>
 </template>
 
@@ -9,9 +9,6 @@
 
 <style>
   .texugo-logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
+    text-align: center;
   }
 </style>
