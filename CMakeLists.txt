@@ -46,7 +46,7 @@ add_library(texugo STATIC
         src/com/ConnectionManager.cpp
     src/config/Settings.cpp
     src/log/Logger.cpp
-    src/process/QueueManager.cpp)
+        src/queue/QueueManager.cpp)
 
 target_include_directories(texugo
     PUBLIC
@@ -63,7 +63,7 @@ target_link_libraries(texugo
     Boost::thread)
 
 add_executable(texugo_process
-    src/main/main.cpp)
+        src/main/Texugo.cpp)
 
 target_link_libraries(texugo --coverage)
 target_link_libraries(texugo_process texugo)
