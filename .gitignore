@@ -32,8 +32,11 @@
 *.out
 *.app
 
+# Virtual Environment
+*venv
+
 # IDE
-/.idea
+*idea
 /.vscode
 
 # Build and binaries
