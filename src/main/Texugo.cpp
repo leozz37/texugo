@@ -27,7 +27,6 @@ int main() {
     // Start Process Queue
     threads.create_thread( [&]{ ProcessQueue::getInstance().watchMessages(); } );
 
-
     threads.join_all();
 
     return 0;

@@ -1,4 +1,5 @@
 #include "texugo/com/Connection.hpp"
+#include "texugo/queue/ProcessQueue.hpp"
 
 using boost::asio::ip::tcp;
 
@@ -6,12 +7,13 @@ using boost::asio::ip::tcp;
 void Session::doRead() {
     auto self(shared_from_this());
     m_socket.async_read_some(boost::asio::buffer(m_data, maxLength),
-                             [this, self](boost::system::error_code ec, std::size_t length) {
-                                 if (!ec) {
-                                     Logger::getInstance().logInfo(m_data);
-                                     doWrite(length);
-                                 }
-                             });
+                            [this, self](boost::system::error_code ec, std::size_t length) {
+                                if (!ec) {
+//                                    Logger::getInstance().logInfo(m_data);
+                                    ProcessQueue::getInstance().insertQueue(m_data);
+                                    doWrite(length);
+                                }
+                            });
 }
 
 void Session::doWrite(std::size_t length) {

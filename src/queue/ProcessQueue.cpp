@@ -24,6 +24,7 @@ void ProcessQueue::processMessage() {
 // Watch queue for coming messages
 void ProcessQueue::insertQueue(const std::string& message) {
     m_processMessageQueue.push(message);
+    Logger::getInstance().logInfo(message);
 }
 
 void ProcessQueue::shutdown() {
@@ -32,7 +33,6 @@ void ProcessQueue::shutdown() {
 
 void ProcessQueue::insertConnectionQueue(const std::string& message, short port) {
     // TODO: find connection on queue by name
-    std::cout << "Message: " << message << " | Port: " << port << "\n";
 }
 
 short ProcessQueue::getDestination(const std::string& message) {
