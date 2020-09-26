@@ -5,7 +5,7 @@
 #include <memory>
 
 void signalHandling(int signalNum) {
-    Logger::getInstance().logWarn("STOPING TEXUGO");
+    Logger::getInstance().logWarn("STOPPING TEXUGO");
     exit(0);
 }
 
