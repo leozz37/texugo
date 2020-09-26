@@ -1,15 +1,28 @@
 import socket
 import sys
+import logging
 
-host = "127.0.0.1"
-port = int(sys.argv[1])
-message = bytes(sys.argv[2], 'utf-8')
+logging.basicConfig(level=logging.INFO)
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((host, port))
+HOST = "127.0.0.1"
+PORT = int(sys.argv[1])
+MESSAGE = bytes(sys.argv[2], 'utf-8')
 
-s.sendall(message)
-data = s.recv(1024)
-print('Received:', data.decode('utf-8'))
+def main():
 
-s.close()
+    socket_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    try:
+        socket_conn.connect((HOST, PORT))
+        socket_conn.sendall(MESSAGE)
+
+        data = socket_conn.recv(1024)
+        logging.info(f'Received: ', data.decode('utf-8'))
+        socket_conn.close()
+
+    except Exception as e:
+        logging.error(e)
+
+
+if __name__ == "__main__":
+    main()
