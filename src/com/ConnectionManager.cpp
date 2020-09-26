@@ -29,3 +29,8 @@ void ConnectionManager::startConnections() {
         connection.second->doAccept();
     }
 }
+
+ConnectionManager& ConnectionManager::getInstance() {
+    static ConnectionManager instance;
+    return instance;
+}

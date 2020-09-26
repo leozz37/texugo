@@ -20,9 +20,12 @@ int main() {
 
     boost::thread_group threads;
 
-    ConnectionManager manager;
+//    ConnectionManager manager;
+
     // Start Connections
-    threads.create_thread( [&]{ manager.openConnections(settings.getRoutingAddresses()); } );
+    threads.create_thread( [&]{
+        ConnectionManager::getInstance().openConnections(settings.getRoutingAddresses());
+    } );
 
     // Start Process Queue
     threads.create_thread( [&]{ ProcessQueue::getInstance().watchMessages(); } );
