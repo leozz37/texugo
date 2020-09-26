@@ -6,11 +6,20 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    build-essential libssl-dev wget git \
+    build-essential \
+    libssl-dev \
+    git \
     cmake \
  && rm -rf /var/lib/apt/lists/*
 
-# Entrypoint set up
-COPY entrypoint.sh /root/entrypoint.sh
-RUN chmod +x /root/entrypoint.sh
-ENTRYPOINT ["/root/entrypoint.sh"]
+# Copying files
+COPY . .
+WORKDIR ./build-docker
+
+# Building texugo
+RUN cmake .. \
+ && make -j4
+
+# Running texugo
+WORKDIR ./bin
+ENTRYPOINT [ "./texugo_process" ]

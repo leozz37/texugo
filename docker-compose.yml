@@ -6,5 +6,3 @@ services:
     container_name: "texugo"
     network_mode: "host"
     image: leozz37/texugo:latest
-    volumes:
-      - "$PWD/..:/dev/texugo"
