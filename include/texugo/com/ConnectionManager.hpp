@@ -8,10 +8,11 @@
 
 class ConnectionManager {
 public:
-    ConnectionManager(const std::unordered_map<std::string, std::string>&);
+    void openConnection(const std::unordered_map<std::string, std::string>&);
+
+private:
     void createConnection(boost::asio::io_service&, const std::string&, short);
     void startConnections();
 
-private:
     std::unordered_map<std::string, std::unique_ptr<Connection>> m_connectionList;
 };

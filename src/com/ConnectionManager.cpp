@@ -3,13 +3,14 @@
 #include "texugo/log/Logger.hpp"
 #include <stdexcept>
 
-ConnectionManager::ConnectionManager(const std::unordered_map<std::string, std::string>& routingAddresses) {
+
+void ConnectionManager::openConnection(const std::unordered_map<std::string, std::string>& routingAddresses) {
 
     boost::asio::io_service io_service;
     boost::asio::io_service::work work(io_service);
 
     for (auto& connection : routingAddresses) {
-       const std::string name = connection.first;
+        const std::string name = connection.first;
         short port = std::stoi(connection.second);
         createConnection(io_service, name, port);
     }

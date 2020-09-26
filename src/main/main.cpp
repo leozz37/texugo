@@ -17,7 +17,8 @@ int main() {
     const std::string settingsPath = "../../resources/settings.json";
     Settings settings(settingsPath);
 
-    ConnectionManager manager(settings.getRoutingAddresses());
+    ConnectionManager manager;
+    manager.openConnection(settings.getRoutingAddresses());
 
     return 0;
 }
