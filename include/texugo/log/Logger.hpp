@@ -12,6 +12,7 @@ public:
     void openLogFile();
     void logInfo(const std::string&);
     void logWarn(const std::string&);
+    void logWarn(const std::exception&);
     static Logger& getInstance();
 
 private:

@@ -24,6 +24,11 @@ void Logger::logWarn(const std::string& message) {
     spdlog::get("logFile")->warn(message);
 }
 
+void Logger::logWarn(const std::exception& message) {
+    spdlog::warn(message);
+    spdlog::get("logFile")->warn(message);
+}
+
 Logger& Logger::getInstance() {
     static Logger instance;
     return instance;
