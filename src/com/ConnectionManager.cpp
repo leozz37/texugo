@@ -15,7 +15,6 @@ void ConnectionManager::openConnections(const std::unordered_map<std::string, st
     }
 
     startConnections();
-
     io_service.run();
 }
 
@@ -28,6 +27,12 @@ void ConnectionManager::startConnections() {
     for (auto& connection : m_connectionList) {
         connection.second->doAccept();
     }
+}
+
+void ConnectionManager::insertConnectionQueue(const std::string& connection, const std::string& message) {
+    // TODO: fix this mess, CNX manager shouldn't send messages
+    auto& cnx = m_connectionList.find(connection)->second;
+    cnx->insertQueue(message);
 }
 
 ConnectionManager& ConnectionManager::getInstance() {

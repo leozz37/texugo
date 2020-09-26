@@ -38,5 +38,6 @@ void Connection::doAccept() {
 }
 
 void Connection::insertQueue(const std::string& message) {
-   m_messageQueue.push(message);
+    std::cout << message << "\n";
+    m_messageQueue.push(message);
 }

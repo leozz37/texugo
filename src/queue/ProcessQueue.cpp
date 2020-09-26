@@ -1,4 +1,5 @@
 #include "texugo/queue/ProcessQueue.hpp"
+#include "texugo/com/ConnectionManager.hpp"
 #include "texugo/message/MessageParser.hpp"
 #include "texugo/log/Logger.hpp"
 
@@ -37,7 +38,7 @@ void ProcessQueue::insertConnectionQueue(const std::string& payload) {
     const std::vector<std::string>& destinations = parser.getDestination();
 
     for (auto destination : destinations) {
-
+        ConnectionManager::getInstance().insertConnectionQueue(destination, message);
     }
 }
 

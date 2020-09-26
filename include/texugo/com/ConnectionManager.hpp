@@ -14,6 +14,7 @@ public:
     ConnectionManager& operator = (ConnectionManager&& other) noexcept = delete;
 
     void openConnections(const std::unordered_map<std::string, std::string>&);
+    void insertConnectionQueue(const std::string&, const std::string&);
     static ConnectionManager& getInstance();
 
 private:
