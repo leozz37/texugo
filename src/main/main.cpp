@@ -17,8 +17,12 @@ int main() {
     const std::string settingsPath = "../../resources/settings.json";
     Settings settings(settingsPath);
 
+    boost::thread_group threads;
+
     ConnectionManager manager;
-    manager.openConnection(settings.getRoutingAddresses());
+    threads.create_thread( [&]{ manager.openConnections(settings.getRoutingAddresses()); } );
+
+    threads.join_all();
 
     return 0;
 }

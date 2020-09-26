@@ -4,8 +4,7 @@
 #include <stdexcept>
 
 
-void ConnectionManager::openConnection(const std::unordered_map<std::string, std::string>& routingAddresses) {
-
+void ConnectionManager::openConnections(const std::unordered_map<std::string, std::string>& routingAddresses) {
     boost::asio::io_service io_service;
     boost::asio::io_service::work work(io_service);
 
@@ -16,6 +15,7 @@ void ConnectionManager::openConnection(const std::unordered_map<std::string, std
     }
 
     startConnections();
+
     io_service.run();
 }
 

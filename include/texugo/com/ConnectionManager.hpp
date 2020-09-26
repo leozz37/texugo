@@ -8,7 +8,7 @@
 
 class ConnectionManager {
 public:
-    void openConnection(const std::unordered_map<std::string, std::string>&);
+    void openConnections(const std::unordered_map<std::string, std::string>&);
 
 private:
     void createConnection(boost::asio::io_service&, const std::string&, short);
