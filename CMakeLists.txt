@@ -37,16 +37,16 @@ CPMFindPackage(
     VERSION 1.67.0
     FIND_PACKAGE_ARGUMENTS "COMPONENTS system thread")
 
-add_compile_options(--coverage -O0)
-enable_testing()
-add_subdirectory(tests)
+#add_compile_options(--coverage -O0)
+#enable_testing()
+#add_subdirectory(tests)
 
 add_library(texugo STATIC
     src/com/Connection.cpp
-        src/com/ConnectionManager.cpp
+    src/com/ConnectionManager.cpp
     src/config/Settings.cpp
     src/log/Logger.cpp
-        src/queue/QueueManager.cpp)
+        src/queue/ProcessQueue.cpp)
 
 target_include_directories(texugo
     PUBLIC
@@ -63,7 +63,7 @@ target_link_libraries(texugo
     Boost::thread)
 
 add_executable(texugo_process
-        src/main/Texugo.cpp)
+    src/main/Texugo.cpp)
 
 target_link_libraries(texugo --coverage)
 target_link_libraries(texugo_process texugo)
