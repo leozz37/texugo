@@ -1,6 +1,6 @@
 #include "texugo/queue/ProcessQueue.hpp"
+#include "texugo/message/MessageParser.hpp"
 #include "texugo/log/Logger.hpp"
-#include <iostream>
 
 // Watch queue for coming messages
 void ProcessQueue::watchMessages() {
@@ -16,8 +16,7 @@ void ProcessQueue::watchMessages() {
 // Insert message on port queue and remove from process queue
 void ProcessQueue::processMessage() {
     const std::string message = m_processMessageQueue.front();
-    const short port = getDestination(message);
-    insertConnectionQueue(message, port);
+    insertConnectionQueue(message);
     m_processMessageQueue.pop();
 }
 
@@ -31,13 +30,15 @@ void ProcessQueue::shutdown() {
     m_running = false;
 }
 
-void ProcessQueue::insertConnectionQueue(const std::string& message, short port) {
-    // TODO: find connection on queue by name
-}
+void ProcessQueue::insertConnectionQueue(const std::string& payload) {
+    MessageParser parser(payload);
 
-short ProcessQueue::getDestination(const std::string& message) {
-    // TODO: get destination from message
-    return 3004;
+    const std::string& message = parser.getMessage();
+    const std::vector<std::string>& destinations = parser.getDestination();
+
+    for (auto destination : destinations) {
+
+    }
 }
 
 ProcessQueue& ProcessQueue::getInstance() {

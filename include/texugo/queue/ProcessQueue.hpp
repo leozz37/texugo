@@ -18,8 +18,7 @@ private:
     ProcessQueue() noexcept = default;
 
     void processMessage();
-    void insertConnectionQueue(const std::string&, short);
-    short getDestination(const std::string&);
+    void insertConnectionQueue(const std::string&);
 
     std::queue<std::string> m_processMessageQueue;
     bool m_running = true;
