@@ -14,12 +14,12 @@ RUN apt-get update && apt-get install -y \
 
 # Copying files
 COPY . .
-WORKDIR ./build-docker
+WORKDIR /build-docker
 
 # Building texugo
 RUN cmake .. \
  && make -j4
 
 # Running texugo
-WORKDIR ./bin
+WORKDIR /build-docker/bin
 ENTRYPOINT [ "./texugo_process" ]
