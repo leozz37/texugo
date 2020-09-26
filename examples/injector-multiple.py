@@ -9,4 +9,4 @@ s.connect((host, port))
 while 1:
     s.sendall(b'Hello, world')
     data = s.recv(1024)
-    print('Received', repr(data))
+    print('Received:', data.decode('utf-8'))
