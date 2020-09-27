@@ -7,3 +7,6 @@ log/
 
 # IDE
 .vscode/
+
+# Example files
+examples/

@@ -8,8 +8,8 @@ HOST = "127.0.0.1"
 PORT = int(sys.argv[1])
 MESSAGE = bytes(sys.argv[2], 'utf-8')
 
-def main():
 
+def main():
     socket_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     try:
