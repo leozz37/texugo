@@ -9,7 +9,6 @@ void Session::doRead() {
     m_socket.async_read_some(boost::asio::buffer(m_data, maxLength),
                             [this, self](boost::system::error_code ec, std::size_t length) {
                                 if (!ec) {
-//                                    Logger::getInstance().logInfo(m_data);
                                     ProcessQueue::getInstance().insertQueue(m_data);
                                     doWrite(length);
                                 }
@@ -38,6 +37,6 @@ void Connection::doAccept() {
 }
 
 void Connection::insertQueue(const std::string& message) {
-    std::cout << message << "\n";
+    Logger::getInstance().logInfo(std::to_string(m_port) + " | Received message");
     m_messageQueue.push(message);
 }

@@ -24,7 +24,6 @@ void ProcessQueue::processMessage() {
 // Watch queue for coming messages
 void ProcessQueue::insertQueue(const std::string& message) {
     m_processMessageQueue.push(message);
-    Logger::getInstance().logInfo(message);
 }
 
 void ProcessQueue::shutdown() {

@@ -13,7 +13,7 @@ def main():
     socket_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     payload = {
-        "destination": [sys.argv[2]],
+        "destination": [sys.argv[2], "CCCCCCC"],
         "message": sys.argv[3]
     }
 
