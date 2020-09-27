@@ -10,7 +10,7 @@
 [![Documentation](https://codedocs.xyz/leozz37/texugo.svg)](https://codedocs.xyz/leozz37/texugo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[Texugo](https://leozz37.github.io/texugo/) is a flexible multiplatform server message switch using Modern C++ based on Boost Asio.
+[Texugo](https://leozz37.github.io/texugo/) is a fast flexible multiplatform message gateway based on sockets, library free, made with Modern C++.
 
 ## Features
 
@@ -18,6 +18,7 @@
 -   Flexible port binding;
 -   Reliably serve devices across multiple networks;
 -   Logging support with [spdlog](https://github.com/gabime/spdlog);
+-   Dependency managed by [CPM.cmake](https://github.com/TheLartians/CPM.cmake);
 -   Unit tests using [Catch2](https://github.com/catchorg/Catch20);
 -   Support to build and run the binary on [Docker](https://www.docker.com/);
 -   Support to docker-compose to run all the services dependencies;
@@ -70,16 +71,51 @@ $ docker-compose up
 
 You can find the latest image version [here](https://hub.docker.com/repository/docker/leozz37/texugo);
 
+## Server Configs
+
+The routing addresses are setted up at the _settings.json_ file. You can choose the receiver addresses, and the sender addresses:
+
+Receiver addresses is going to binded by Texugo, and it will listen to them:
+
+```JSON
+"receiverAddresses": [
+    {
+      "ARDUINO": "3000"
+    },
+    {
+      "NODE-SERVICE": "3001"
+    },
+    {
+      "METRICS": "3002"
+    }
+  ]
+```
+
+Sender Addresses are the ports listening. Make sure to have a service binded to that port:
+
+```JSON
+"senderAddresses": [
+    {
+      "RASPBERRY": "3003"
+    },
+    {
+      "GO-SERVICE": "3004"
+    },
+    {
+      "GRAFANA": "3005"
+    }
+  ]
+```
+
 ### Using examples
 
 There's two files example, to use them do the follow commands:
 
-
-| File name              | Run command                                       |
-| ---------------------- | ------------------------------------------------- |
-| `injector-json.py`     | `$ python injector-multiple.py 3000'`             |
-| `injector-multiple.py` | `$ python injector-json.py 3000 BBBBBBB Hello`    |
-
+| File name              | Run command                                        |
+| ---------------------- | -------------------------------------------------- |
+| `injector-single.py`   | `$ python injector-single.py 3000 ENDPOINT Hello`  |
+| `injector-multiple.py` | `$ python injector-multiple.py 3000 BBBBBBB Hello` |
+| `listener-port.py`     | `$ python listener-port.py 3005`                   |
 
 ### Running Tests
 
@@ -87,29 +123,4 @@ There's two files example, to use them do the follow commands:
 $ cd build/tests
 
 $ ctest -V
-```
-
-## Server Configs
-
-You can change the default route settings by changing the _routingAddresses_ array on the resources/settings.json file.
-
-```JSON
-
-"routingAddresses": [
-    {
-      "AAAAAAA": "3000"
-    },
-    {
-      "BBBBBBB": "3001"
-    },
-    {
-      "CCCCCCC": "3002"
-    },
-    {
-      "DDDDDDD": "3003"
-    },
-    {
-      "EEEEEEE": "3004"
-    }
-  ]
 ```

@@ -6,10 +6,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    libssl-dev \
-    git \
-    cmake \
+    build-essential libssl-dev \
+    git cmake \
  && rm -rf /var/lib/apt/lists/*
 
 # Copying files
