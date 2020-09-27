@@ -47,12 +47,5 @@ deploy:
     on:
         branch: master
 
-deploy:
-    provider: script
-    skip-cleanup: true
-    script: bash scripts/travis-deploy.sh
-    on:
-        branch: master
-
 notifications:
     email: false
