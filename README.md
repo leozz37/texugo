@@ -45,6 +45,28 @@ $ cmake ..
 $ make -j4
 ```
 
+
+## Docker
+
+Building the image:
+
+```bash
+$ docker build . -t texugo
+```
+
+Running the image:
+
+```bash
+$ docker run --net host texugo
+```
+
+Running docker compose
+
+```bash
+$ docker-compose up
+```
+
+
 ### Using examples
 
 There's two files example, to use them do the follow commands:
@@ -62,26 +84,6 @@ There's two files example, to use them do the follow commands:
 $ cd build/tests
 
 $ ctest -V
-```
-
-## Docker
-
-Building the image:
-
-```bash
-$ docker build . -t texugo
-```
-
-Running the image:
-
-```bash
-$ docker run -v $PWD/..:/dev/texugo texugo
-```
-
-Running docker compose
-
-```bash
-$ docker-compose up
 ```
 
 ## Server Configs
