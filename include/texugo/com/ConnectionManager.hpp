@@ -30,5 +30,4 @@ private:
 
     inline static std::unordered_map<std::string, std::unique_ptr<ReceiverConnection>> m_receiverConnections;
     inline static std::unordered_map<std::string, std::unique_ptr<SenderConnection>> m_senderConnections;
-
 };
