@@ -32,7 +32,7 @@ void ConnectionManager::startConnections() {
 void ConnectionManager::insertConnectionQueue(const std::string& connection, const std::string& message) {
     // TODO: fix this mess, CNX manager shouldn't send messages
     auto& cnx = m_connectionList.find(connection)->second;
-    cnx->insertQueue(message);
+    cnx->writeMessage(message);
 }
 
 ConnectionManager& ConnectionManager::getInstance() {
