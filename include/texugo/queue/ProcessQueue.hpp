@@ -20,6 +20,6 @@ private:
     void processMessage();
     void insertConnectionQueue(const std::string&);
 
-    std::queue<std::string> m_processMessageQueue;
+    inline static std::queue<std::string> m_processMessageQueue;
     bool m_running = true;
 };
