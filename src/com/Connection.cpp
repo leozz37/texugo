@@ -4,6 +4,12 @@
 using boost::asio::ip::tcp;
 
 // Session Methods
+Session::Session(tcp::socket socket) : m_socket(std::move(socket)) { }
+
+void Session::start() {
+    doRead();
+}
+
 void Session::doRead() {
     auto self(shared_from_this());
     m_socket.async_read_some(boost::asio::buffer(m_data, maxLength),
@@ -25,7 +31,14 @@ void Session::doWrite(std::size_t length) {
                              });
 }
 
+
+
 // Connection Methods
+Connection::Connection(boost::asio::io_context& io_context, short port)
+    : m_port(port)
+    , m_acceptor(io_context, tcp::endpoint(tcp::v4(), port)) { }
+
+
 void Connection::doAccept() {
     m_acceptor.async_accept(
             [this](boost::system::error_code ec, tcp::socket socket) {
