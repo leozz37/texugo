@@ -23,5 +23,5 @@ private:
     void createConnection(boost::asio::io_service&, const std::string&, short);
     void startConnections();
 
-    std::unordered_map<std::string, std::unique_ptr<Connection>> m_connectionList;
+    inline static std::unordered_map<std::string, std::unique_ptr<Connection>> m_connectionList;
 };
