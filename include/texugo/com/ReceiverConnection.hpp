@@ -25,11 +25,10 @@ private:
 };
 
 // Server Class
-class Connection {
+class ReceiverConnection {
 public:
-    Connection(boost::asio::io_context&, short);
+    ReceiverConnection(boost::asio::io_context&, short);
     void doAccept();
-    void writeMessage(const std::string &message);
 
 private:
     const short m_port;

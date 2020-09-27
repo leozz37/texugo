@@ -42,12 +42,13 @@ enable_testing()
 add_subdirectory(tests)
 
 add_library(texugo STATIC
-    src/com/Connection.cpp
+    src/com/ReceiverConnection.cpp
     src/com/ConnectionManager.cpp
     src/config/Settings.cpp
     src/log/Logger.cpp
     src/queue/ProcessQueue.cpp
-    src/message/MessageParser.cpp)
+    src/message/MessageParser.cpp
+    src/com/SenderConnection.cpp)
 
 target_include_directories(texugo
     PUBLIC

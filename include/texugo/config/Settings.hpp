@@ -9,15 +9,18 @@ public:
     const std::string& getMongoPath() const;
     const std::string& getLogPath() const;
     const std::string& getMetricsAddress() const;
-    const std::unordered_map<std::string, std::string>& getRoutingAddresses() const;
+    const std::unordered_map<std::string, std::string>& getReceiverAddresses() const;
+    const std::unordered_map<std::string, std::string>& getSenderAddresses() const;
 
 private:
     nlohmann::json getServerConfigs();
-    void setRoutingAddresses(nlohmann::json data);
+    void setReceiverAddresses(nlohmann::json data);
+    void setSenderAddresses(nlohmann::json data);
 
     std::string m_settingsPath;
     std::string m_mongoPath;
     std::string m_logPath;
     std::string m_metricsAddress;
-    std::unordered_map<std::string, std::string> m_routingAddresses;
+    std::unordered_map<std::string, std::string> m_receiverAddresses;
+    std::unordered_map<std::string, std::string> m_senderAddresses;
 };

@@ -1,4 +1,4 @@
-#include "texugo/com/Connection.hpp"
+#include "texugo/com/ReceiverConnection.hpp"
 #include "texugo/queue/ProcessQueue.hpp"
 
 using boost::asio::ip::tcp;
@@ -46,14 +46,14 @@ void Session::doWrite(const std::string& message) {
     }
 }
 
-// Connection Methods
-Connection::Connection(boost::asio::io_context& io_context, short port)
-    : m_port(port)
-    , m_ioContext(io_context)
+// ReceiverConnection Methods
+ReceiverConnection::ReceiverConnection(boost::asio::io_context& io_context, short port)
+    : m_ioContext(io_context)
+    , m_port(port)
     , m_acceptor(io_context, tcp::endpoint(tcp::v4(), port)) { }
 
 
-void Connection::doAccept() {
+void ReceiverConnection::doAccept() {
     m_acceptor.async_accept(
             [this](boost::system::error_code ec, tcp::socket socket) {
                 if (!ec) {
@@ -61,14 +61,4 @@ void Connection::doAccept() {
                 }
                 doAccept();
             });
-}
-
-void Connection::writeMessage(const std::string& message) {
-    Logger::getInstance().logInfo(std::to_string(m_port) + " | Sending message");
-
-    tcp::socket socket(m_ioContext);
-    tcp::resolver resolver(m_ioContext);
-    boost::asio::connect(socket, resolver.resolve("127.0.0.1", std::to_string(m_port)));
-
-    boost::asio::write(socket, boost::asio::buffer(message, message.size()));
 }

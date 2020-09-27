@@ -42,8 +42,8 @@
 //TEST_CASE_METHOD(SettingsFixture, "GetRoutingAddresses") {
 //    Settings testSettings(configPath);
 //
-//    const auto& result = testSettings.getRoutingAddresses();
-//    const auto expected = settings->getRoutingAddresses();
+//    const auto& result = testSettings.getReceiverAddresses();
+//    const auto expected = settings->getReceiverAddresses();
 //
 //    REQUIRE(result == expected);
 // }
