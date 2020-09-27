@@ -16,7 +16,7 @@ public:
 
 private:
     void doRead();
-    void doWrite(std::size_t);
+    void doWrite(const std::string&);
 
     tcp::socket m_socket;
     enum { maxLength = 1024 };

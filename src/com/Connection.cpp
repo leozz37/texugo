@@ -16,14 +16,16 @@ void Session::doRead() {
                             [this, self](boost::system::error_code ec, std::size_t length) {
                                 if (!ec) {
                                     ProcessQueue::getInstance().insertQueue(m_data);
-                                    doWrite(length);
+                                    doWrite("Received");
                                 }
                             });
 }
 
-void Session::doWrite(std::size_t length) {
+void Session::doWrite(const std::string& message) {
     auto self(shared_from_this());
-    boost::asio::async_write(m_socket, boost::asio::buffer("received", length),
+    std::size_t messageLength = message.size();
+
+    boost::asio::async_write(m_socket, boost::asio::buffer(message, messageLength),
                              [this, self](boost::system::error_code ec, std::size_t) {
                                  if (!ec) {
                                      doRead();
