@@ -1,5 +1,7 @@
 # Texugo
 
+![logo](images/logo.png)
+
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/555c8f8825504a81804f4c41b75228cf)](https://www.codacy.com/manual/leozz37/texugo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leozz37/texugo&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/texugo/badge)](https://www.codefactor.io/repository/github/leozz37/texugo)
 [![Build Status](https://travis-ci.com/leozz37/texugo.svg?branch=master)](https://travis-ci.com/leozz37/texugo)
@@ -8,7 +10,7 @@
 [![Documentation](https://codedocs.xyz/leozz37/texugo.svg)](https://codedocs.xyz/leozz37/texugo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Texugo is a flexible multiplatform server message switch using Modern C++ based on Boost Asio.
+[Texugo](https://leozz37.github.io/texugo/) is a flexible multiplatform server message switch using Modern C++ based on Boost Asio.
 
 ## Features
 
@@ -29,33 +31,47 @@ Follow these steps:
 
 ### Clone this repository
 
-`$ git clone https://github.com/leozz37/texugo.git`
+```bash
+$ git clone https://github.com/leozz37/texugo.git
+```
 
 ### Create a build directory and build binary
 
-`$ mkdir build && cd build`
+```bash
+$ mkdir build && cd build
 
-`$ cmake .. && make`
+$ cmake ..
+
+$ make -j4
+```
 
 ### Running Tests
 
-`$ cd build/tests`
+```bash
+$ cd build/tests
 
-`$ ctest -V`
+$ ctest -V
+```
 
 ## Docker
 
 Building the image:
 
-`$ docker build . -t texugo`
+```bash
+$ docker build . -t texugo
+```
 
 Running the image:
 
-`$ docker run -v $PWD/..:/dev/texugo texugo`
+```bash
+$ docker run -v $PWD/..:/dev/texugo texugo
+```
 
 Running docker compose
 
-`$ docker-compose up`
+```bash
+$ docker-compose up
+```
 
 ### DockerHub Image
 
@@ -65,7 +81,7 @@ You can find the latest image version [here](https://hub.docker.com/repository/d
 
 You can change the default route settings by changing the _routingAddresses_ array on the resources/settings.json file.
 
-```settings.json
+```JSON
 
 "routingAddresses": [
     {

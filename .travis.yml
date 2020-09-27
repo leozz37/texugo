@@ -38,6 +38,14 @@ after_success:
     - lcov --remove coverage.info '/usr/*' --output-file coverage.info
     - lcov --list coverage.info
     - bash <(curl -s https://codecov.io/bash) -f coverage.info -t $CODECOV_TOKEN|| echo "Codecov did not collect coverage reports"
+    - cd $TRAVIS_BUILD_DIR
+
+deploy:
+    provider: script
+    skip-cleanup: true
+    script: bash scripts/github-registry.sh
+    on:
+        branch: master
 
 deploy:
     provider: script
