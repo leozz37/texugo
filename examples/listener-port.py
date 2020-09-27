@@ -12,12 +12,14 @@ def main():
 
     socket_conn.bind((HOST, PORT))
     socket_conn.listen(1)
+    count = 0
 
     while True:
         con, client = socket_conn.accept()
         payload = con.recv(1024)
         message = payload.decode('utf-8')
-        print(message)
+        count += 1
+        print(count)
 
 
 if __name__ == "__main__":
