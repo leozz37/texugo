@@ -1,21 +1,41 @@
 #pragma once
-#include <string>
+#include "texugo/log/Logger.hpp"
+#include <cstdlib>
+#include <iostream>
+#include <memory>
 #include <queue>
+#include <boost/asio.hpp>
 
-class Connection {
+using boost::asio::ip::tcp;
+
+// Session Class
+class Session: public std::enable_shared_from_this<Session> {
 public:
-    Connection(std::string , std::string );
-    void insertQueue(const std::string&);
-    void removeQueue();
-    const std::string &getName() const;
-    const std::string &getPort() const;
-    const std::queue<std::string> &getMessageQueue() const;
-    void setWatermark(bool watermark);
-    bool getWatermark() const;
+    explicit Session(tcp::socket socket) : m_socket(std::move(socket)) { }
+    void start() {
+        doRead();
+    }
 
 private:
-    bool m_watermark = false;
-    std::string m_name;
-    std::string m_port;
+    void doRead();
+    void doWrite(std::size_t);
+
+    tcp::socket m_socket;
+    enum { maxLength = 1024 };
+    char m_data[maxLength]{};
+};
+
+// Server Class
+class Connection {
+public:
+    Connection(boost::asio::io_context& io_context, short port)
+        : m_port(port)
+        , m_acceptor(io_context, tcp::endpoint(tcp::v4(), port)) { }
+    void doAccept();
+    void insertQueue(const std::string&);
+
+private:
+    const short m_port;
+    tcp::acceptor m_acceptor;
     std::queue<std::string> m_messageQueue;
 };

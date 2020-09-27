@@ -7,7 +7,6 @@
 *.o
 *.obj
 
-
 # Precompiled Headers
 *.gch
 *.pch
@@ -32,11 +31,18 @@
 *.out
 *.app
 
+# Virtual Environment
+*venv
+
 # IDE
-/.idea
-/.vscode
-/cmake-build-debug
+*idea
+*vscode
+
+# Build and binaries
 /build
+/cmake-build-debug
+/build-docker
+/bin
 
 # CMake
 /cmake

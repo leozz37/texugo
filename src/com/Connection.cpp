@@ -1,54 +1,42 @@
 #include "texugo/com/Connection.hpp"
-#include <iostream>
-#include <utility>
+#include "texugo/queue/ProcessQueue.hpp"
 
-Connection::Connection(std::string  name, std::string  port) : m_name(std::move(name)), m_port(std::move(port)) { }
+using boost::asio::ip::tcp;
+
+// Session Methods
+void Session::doRead() {
+    auto self(shared_from_this());
+    m_socket.async_read_some(boost::asio::buffer(m_data, maxLength),
+                            [this, self](boost::system::error_code ec, std::size_t length) {
+                                if (!ec) {
+                                    ProcessQueue::getInstance().insertQueue(m_data);
+                                    doWrite(length);
+                                }
+                            });
+}
+
+void Session::doWrite(std::size_t length) {
+    auto self(shared_from_this());
+    boost::asio::async_write(m_socket, boost::asio::buffer("received", length),
+                             [this, self](boost::system::error_code ec, std::size_t) {
+                                 if (!ec) {
+                                     doRead();
+                                 }
+                             });
+}
+
+// Connection Methods
+void Connection::doAccept() {
+    m_acceptor.async_accept(
+            [this](boost::system::error_code ec, tcp::socket socket) {
+                if (!ec) {
+                    std::make_shared<Session>(std::move(socket))->start();
+                }
+                doAccept();
+            });
+}
 
 void Connection::insertQueue(const std::string& message) {
-    if (!m_watermark) {
-        if (m_messageQueue.size() >= 20) {
-            m_watermark = true;
-//            rejectMessage();
-        }
-        else {
-            m_messageQueue.push(message);
-        }
-    }
-    else {
-        if (m_messageQueue.size() <= 19) {
-            m_watermark = false;
-            m_messageQueue.push(message);
-        }
-        else {
-//            rejectMessage();
-        }
-    }
-}
-
-void Connection::removeQueue() {
-    m_messageQueue.pop();
-
-    if (m_messageQueue.size() <= 19) {
-        m_watermark = false;
-    }
-}
-
-const std::string &Connection::getName() const {
-    return m_name;
-}
-
-const std::string &Connection::getPort() const {
-    return m_port;
-}
-
-const std::queue<std::string> &Connection::getMessageQueue() const {
-    return m_messageQueue;
-}
-
-void Connection::setWatermark(bool watermark) {
-    m_watermark = watermark;
-}
-
-bool Connection::getWatermark() const {
-    return m_watermark;
+    Logger::getInstance().logInfo(std::to_string(m_port) + " | Received message");
+    m_messageQueue.push(message);
 }

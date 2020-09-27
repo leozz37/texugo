@@ -3,7 +3,7 @@
 #include <spdlog/sinks/rotating_file_sink.h>
 
 Logger::Logger() noexcept {
-    const std::string logPath = "../log/log.txt";
+    const std::string logPath = "../../log/log.txt";
 
     try {
         auto logFile = spdlog::rotating_logger_mt("logFile", logPath, 1048576 * 5, 3);
@@ -22,6 +22,11 @@ void Logger::logInfo(const std::string& message) {
 void Logger::logWarn(const std::string& message) {
     spdlog::warn(message);
     spdlog::get("logFile")->warn(message);
+}
+
+void Logger::logWarn(const std::exception& message) {
+    spdlog::warn(message.what());
+    spdlog::get("logFile")->warn(message.what());
 }
 
 Logger& Logger::getInstance() {
