@@ -21,7 +21,7 @@ def main():
         socket_conn.connect((HOST, PORT))
         socket_conn.sendall(bytes(json.dumps(payload), 'utf-8'))
         data = socket_conn.recv(1024)
-        logging.info(f'Received: ', data.decode('utf-8'))
+        logging.info('Received: ' + data.decode('utf-8'))
 
         socket_conn.close()
 

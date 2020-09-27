@@ -17,7 +17,7 @@ def main():
         socket_conn.sendall(MESSAGE)
 
         data = socket_conn.recv(1024)
-        logging.info(f'Received: ', data.decode('utf-8'))
+        logging.info('Received: ' + data.decode('utf-8'))
         socket_conn.close()
 
     except Exception as e:
