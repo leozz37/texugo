@@ -11,10 +11,8 @@ using boost::asio::ip::tcp;
 // Session Class
 class Session: public std::enable_shared_from_this<Session> {
 public:
-    explicit Session(tcp::socket socket) : m_socket(std::move(socket)) { }
-    void start() {
-        doRead();
-    }
+    explicit Session(tcp::socket);
+    void start();
 
 private:
     void doRead();
@@ -28,9 +26,7 @@ private:
 // Server Class
 class Connection {
 public:
-    Connection(boost::asio::io_context& io_context, short port)
-        : m_port(port)
-        , m_acceptor(io_context, tcp::endpoint(tcp::v4(), port)) { }
+    Connection(boost::asio::io_context&, short);
     void doAccept();
     void insertQueue(const std::string&);
 
