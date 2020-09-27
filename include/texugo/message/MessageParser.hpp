@@ -5,7 +5,7 @@
 
 class MessageParser {
 public:
-    MessageParser(const std::string&);
+    explicit MessageParser(const std::string&);
     const std::vector<std::string> &getDestination() const;
     const std::string &getMessage() const;
 

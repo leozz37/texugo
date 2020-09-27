@@ -8,7 +8,7 @@ MessageParser::MessageParser(const std::string& message) {
         auto element = payload["destination"];
         std::copy(element.begin(), element.end(), back_inserter(m_destination));
     }
-    catch (const nlohmann::json::exception e) {
+    catch (const nlohmann::json::exception& e) {
         Logger::getInstance().logWarn("JSON parse error");
         return;
     }

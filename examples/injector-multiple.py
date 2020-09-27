@@ -20,7 +20,7 @@ def main():
     while True:
         socket_conn.sendall(b'Hello, world')
         data = socket_conn.recv(1024)
-        logging.info(f'Received: ' + data.decode('utf-8'))
+        logging.info('Received: ' + data.decode('utf-8'))
 
 
 if __name__ == "__main__":
