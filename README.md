@@ -45,13 +45,6 @@ $ cmake ..
 $ make -j4
 ```
 
-### Running Tests
-
-```bash
-$ cd build/tests
-
-$ ctest -V
-```
 
 ## Docker
 
@@ -64,7 +57,7 @@ $ docker build . -t texugo
 Running the image:
 
 ```bash
-$ docker run -v $PWD/..:/dev/texugo texugo
+$ docker run --net host texugo
 ```
 
 Running docker compose
@@ -76,6 +69,25 @@ $ docker-compose up
 ### DockerHub Image
 
 You can find the latest image version [here](https://hub.docker.com/repository/docker/leozz37/texugo);
+
+### Using examples
+
+There's two files example, to use them do the follow commands:
+
+
+| File name              | Run command                                       |
+| ---------------------- | ------------------------------------------------- |
+| `injector-json.py`     | `$ python injector-multiple.py 3000'`             |
+| `injector-multiple.py` | `$ python injector-json.py 3000 BBBBBBB Hello`    |
+
+
+### Running Tests
+
+```bash
+$ cd build/tests
+
+$ ctest -V
+```
 
 ## Server Configs
 
