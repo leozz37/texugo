@@ -11,26 +11,36 @@ void Session::start() {
 }
 
 void Session::doRead() {
-    auto self(shared_from_this());
-    m_socket.async_read_some(boost::asio::buffer(m_data, maxLength),
-                            [this, self](boost::system::error_code ec, std::size_t length) {
-                                if (!ec) {
-                                    ProcessQueue::getInstance().insertQueue(m_data);
-                                    doWrite("Received");
-                                }
-                            });
+    try {
+        auto self(shared_from_this());
+        m_socket.async_read_some(boost::asio::buffer(m_data, maxLength),
+                                 [this, self](boost::system::error_code ec, std::size_t length) {
+                                     if (!ec) {
+                                         ProcessQueue::getInstance().insertQueue(m_data);
+                                         doWrite("Received");
+                                     }
+                                 });
+    }
+    catch (std::exception& e) {
+        Logger::getInstance().logError(e);
+    }
 }
 
 void Session::doWrite(const std::string& message) {
-    auto self(shared_from_this());
-    std::size_t messageLength = message.size();
+    try {
+        auto self(shared_from_this());
+        std::size_t messageLength = message.size();
 
-    boost::asio::async_write(m_socket, boost::asio::buffer(message, messageLength),
-                             [this, self](boost::system::error_code ec, std::size_t) {
-                                 if (!ec) {
-                                     doRead();
-                                 }
-                             });
+        boost::asio::async_write(m_socket, boost::asio::buffer(message, messageLength),
+                                 [this, self](boost::system::error_code ec, std::size_t) {
+                                     if (!ec) {
+                                         doRead();
+                                     }
+                                 });
+    }
+    catch (std::exception& e) {
+        Logger::getInstance().logError(e);
+    }
 }
 
 
