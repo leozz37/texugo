@@ -47,31 +47,13 @@ $ make -j4
 
 ### Using examples
 
-There's three files example, to use them do the follow commands:
+There's two files example, to use them do the follow commands:
 
-_injector-json.py_
 
-```bash
-$ python injector-json.py $PORT $DESTINATION $MESSAGE
-```
-
-Would look like this
-
-```bash
-$ python injector-json.py 3000 AAAAAAA Hello
-```
-
-_injector-multiple.py_
-
-```bash
-$ python injector-multiple.py $PORT
-```
-
-_injector-single.py_
-
-```bash
-$ python injector-single.py $PORT $MESSAGE
-```
+| File name              | Run command                                       |
+| ---------------------- | ------------------------------------------------- |
+| `injector-json.py`     | `$ python injector-multiple.py 3000'`             |
+| `injector-multiple.py` | `$ python injector-json.py 3000 BBBBBBB Hello`    |
 
 
 ### Running Tests
