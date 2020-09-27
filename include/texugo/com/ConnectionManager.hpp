@@ -1,5 +1,6 @@
 #pragma once
-#include "Connection.hpp"
+#include "texugo/com/ReceiverConnection.hpp"
+#include "texugo/com/SenderConnection.hpp"
 #include <memory>
 #include <string>
 #include <unordered_map>
@@ -13,15 +14,20 @@ public:
     ConnectionManager& operator = (const ConnectionManager& other) noexcept = delete;
     ConnectionManager& operator = (ConnectionManager&& other) noexcept = delete;
 
-    void openConnections(const std::unordered_map<std::string, std::string>&);
+    void startConnections(const std::unordered_map<std::string, std::string>&,
+                          const std::unordered_map<std::string, std::string>&);
     void insertConnectionQueue(const std::string&, const std::string&);
     static ConnectionManager& getInstance();
 
 private:
     ConnectionManager() noexcept = default;
 
-    void createConnection(boost::asio::io_service&, const std::string&, short);
-    void startConnections();
+    void createReceiverConnections(const std::unordered_map<std::string, std::string>&,
+                                   boost::asio::io_service&);
+    void createSenderConnections(const std::unordered_map<std::string, std::string>&,
+                                 boost::asio::io_service&);
+    void openReceiverConnections();
 
-    inline static std::unordered_map<std::string, std::unique_ptr<Connection>> m_connectionList;
+    inline static std::unordered_map<std::string, std::unique_ptr<ReceiverConnection>> m_receiverConnections;
+    inline static std::unordered_map<std::string, std::unique_ptr<SenderConnection>> m_senderConnections;
 };

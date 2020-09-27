@@ -13,6 +13,8 @@ public:
     void logInfo(const std::string&);
     void logWarn(const std::string&);
     void logWarn(const std::exception&);
+    void logError(const std::string&);
+    void logError(const std::exception&);
     static Logger& getInstance();
 
 private:

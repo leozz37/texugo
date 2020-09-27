@@ -36,7 +36,7 @@ void ProcessQueue::insertConnectionQueue(const std::string& payload) {
     const std::string& message = parser.getMessage();
     const std::vector<std::string>& destinations = parser.getDestination();
 
-    for (auto destination : destinations) {
+    for (const auto& destination : destinations) {
         ConnectionManager::getInstance().insertConnectionQueue(destination, message);
     }
 }

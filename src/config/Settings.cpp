@@ -8,7 +8,8 @@ Settings::Settings(std::string  settingsPath) : m_settingsPath(std::move(setting
     m_metricsAddress = data["settings"]["metricsAddress"];
     m_mongoPath = data["settings"]["mongoPath"];
     m_logPath = data["settings"]["logPath"];
-    setRoutingAddresses(data);
+    setReceiverAddresses(data);
+    setSenderAddresses(data);
 }
 
 const std::string &Settings::getMongoPath() const {
@@ -23,14 +24,25 @@ const std::string &Settings::getMetricsAddress() const {
     return m_metricsAddress;
 }
 
-const std::unordered_map<std::string, std::string> &Settings::getRoutingAddresses() const {
-    return m_routingAddresses;
+const std::unordered_map<std::string, std::string> &Settings::getReceiverAddresses() const {
+    return m_receiverAddresses;
 }
 
-void Settings::setRoutingAddresses(nlohmann::json data) {
-    for (const auto& address : data["routingAddresses"]) {
+const std::unordered_map<std::string, std::string> &Settings::getSenderAddresses() const {
+    return m_senderAddresses;
+}
+
+void Settings::setReceiverAddresses(nlohmann::json data) {
+    for (const auto& address : data["receiverAddresses"]) {
         auto dataAddress = address.get<std::map<std::string, std::string>>();
-        m_routingAddresses.insert(dataAddress.begin(), dataAddress.end());
+        m_receiverAddresses.insert(dataAddress.begin(), dataAddress.end());
+    }
+}
+
+void Settings::setSenderAddresses(nlohmann::json data) {
+    for (const auto& address : data["senderAddresses"]) {
+        auto dataAddress = address.get<std::map<std::string, std::string>>();
+        m_senderAddresses.insert(dataAddress.begin(), dataAddress.end());
     }
 }
 

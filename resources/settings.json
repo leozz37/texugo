@@ -4,7 +4,7 @@
     "logPath": "../log/log.txt",
     "metricsAddress": "127.0.0.1:8080"
   },
-  "routingAddresses": [
+  "receiverAddresses": [
     {
       "AAAAAAA": "3000"
     },
@@ -19,6 +19,17 @@
     },
     {
       "EEEEEEE": "3004"
+    }
+  ],
+  "senderAddresses": [
+    {
+      "FFFFFFF": "3005"
+    },
+    {
+      "GGGGGGG": "3006"
+    },
+    {
+      "HHHHHHH": "3007"
     }
   ]
 }
