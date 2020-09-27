@@ -37,9 +37,9 @@ CPMFindPackage(
     VERSION 1.67.0
     FIND_PACKAGE_ARGUMENTS "COMPONENTS system thread")
 
-#add_compile_options(--coverage -O0)
-#enable_testing()
-#add_subdirectory(tests)
+add_compile_options(--coverage -O0)
+enable_testing()
+add_subdirectory(tests)
 
 add_library(texugo STATIC
     src/com/Connection.cpp
