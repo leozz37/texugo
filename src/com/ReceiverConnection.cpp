@@ -1,5 +1,5 @@
 #include "texugo/com/ReceiverConnection.hpp"
-#include "texugo/queue/ProcessQueue.hpp"
+#include "texugo/queue/ProcessMessage.hpp"
 
 using boost::asio::ip::tcp;
 
@@ -15,12 +15,15 @@ void Session::start() {
 void Session::doRead() {
     try {
         auto self(shared_from_this());
-        m_socket.async_read_some(boost::asio::buffer(m_data, maxLength),
+        m_socket.async_read_some(boost::asio::buffer(m_payload, maxLength),
                                  [this, self](boost::system::error_code ec, std::size_t length) {
                                      if (!ec) {
-                                         Logger::getInstance().logInfo(std::to_string(m_port) + " | Received message");
-                                         ProcessQueue::getInstance().insertQueue(m_data);
-                                         doWrite("Received");
+                                        Logger::getInstance().logInfo(std::to_string(m_port) + " | Received message");
+//                                         ProcessMessage::getInstance().insertQueue(m_payload);
+                                        ProcessMessage processMessage;
+                                        processMessage.processMessage(m_payload);
+
+                                        doWrite("Received");
                                      }
                                  });
     }

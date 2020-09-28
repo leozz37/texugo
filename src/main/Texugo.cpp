@@ -1,7 +1,7 @@
 #include "texugo/config/Settings.hpp"
 #include "texugo/com/ConnectionManager.hpp"
 #include "texugo/log/Logger.hpp"
-#include "texugo/queue/ProcessQueue.hpp"
+#include "texugo/queue/ProcessMessage.hpp"
 #include <csignal>
 #include <memory>
 
@@ -26,9 +26,6 @@ int main() {
                 settings.getReceiverAddresses(),
                 settings.getSenderAddresses());
     } );
-
-    // Start Process Queue
-    threads.create_thread( [&]{ ProcessQueue::getInstance().watchMessages(); } );
 
     threads.join_all();
 

@@ -20,7 +20,7 @@ private:
 
     tcp::socket m_socket;
     enum { maxLength = 1024 };
-    char m_data[maxLength]{};
+    char m_payload[maxLength]{};
     short m_port;
 };
 
