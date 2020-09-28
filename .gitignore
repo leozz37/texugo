@@ -50,6 +50,6 @@
 # logs
 /log
 
-# Frontend
+# Vue GitHub Pages
 *node_modules
 *dist
