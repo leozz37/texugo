@@ -1,0 +1,12 @@
+# Build directories
+build/
+cmake-build-debug/
+
+# Log
+log/
+
+# IDE
+.vscode/
+
+# Example files
+examples/

@@ -39,12 +39,20 @@ TEST_CASE_METHOD(SettingsFixture, "GetMetricsAddress") {
     REQUIRE(result == expected);
  }
 
-TEST_CASE_METHOD(SettingsFixture, "GetRoutingAddresses") {
+TEST_CASE_METHOD(SettingsFixture, "GetReceiverAddresses") {
     Settings testSettings(configPath);
 
-    const auto& result = testSettings.getRoutingAddresses();
-    const auto expected = settings->getRoutingAddresses();
+    const auto& result = testSettings.getReceiverAddresses();
+    const auto expected = settings->getReceiverAddresses();
 
     REQUIRE(result == expected);
  }
 
+TEST_CASE_METHOD(SettingsFixture, "GetSenderAddresses") {
+    Settings testSettings(configPath);
+
+    const auto& result = testSettings.getSenderAddresses();
+    const auto expected = settings->getSenderAddresses();
+
+    REQUIRE(result == expected);
+}

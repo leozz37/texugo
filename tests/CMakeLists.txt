@@ -1,8 +1,6 @@
 # Including CPM
 include(${CPM_DOWNLOAD_LOCATION})
 
-add_compile_options(--coverage -O0)
-
 # Catch2
 CPMAddPackage(
     NAME Catch2
@@ -10,8 +8,6 @@ CPMAddPackage(
     VERSION 2.5.0)
 
 add_executable(texugo_tests
-        com/ConnectionTest.cpp
-        com/ManagerTest.cpp
         config/SettingsTest.cpp
         main/main.cpp)
 
