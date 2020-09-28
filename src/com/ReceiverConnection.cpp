@@ -1,5 +1,5 @@
 #include "texugo/com/ReceiverConnection.hpp"
-#include "texugo/queue/ProcessMessage.hpp"
+#include "texugo/message/ProcessMessage.hpp"
 
 using boost::asio::ip::tcp;
 

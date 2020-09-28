@@ -46,7 +46,7 @@ add_library(texugo STATIC
     src/com/ConnectionManager.cpp
     src/config/Settings.cpp
     src/log/Logger.cpp
-        src/queue/ProcessMessage.cpp
+        src/message/ProcessMessage.cpp
     src/message/MessageParser.cpp
     src/com/SenderConnection.cpp)
 

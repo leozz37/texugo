@@ -1,11 +1,10 @@
 #include "texugo/config/Settings.hpp"
 #include "texugo/com/ConnectionManager.hpp"
 #include "texugo/log/Logger.hpp"
-#include "texugo/queue/ProcessMessage.hpp"
 #include <csignal>
 #include <memory>
 
-void signalHandling(int signalNum) {
+void signalHandling(int) {
     Logger::getInstance().logWarn("STOPPING TEXUGO");
     exit(0);
 }
@@ -20,7 +19,7 @@ int main() {
 
     boost::thread_group threads;
 
-    // Start Receiver Connections
+    // Start Connections
     threads.create_thread( [&]{
         ConnectionManager::getInstance().startConnections(
                 settings.getReceiverAddresses(),

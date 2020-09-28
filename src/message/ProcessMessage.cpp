@@ -1,10 +1,7 @@
-#include "texugo/queue/ProcessMessage.hpp"
+#include "texugo/message/ProcessMessage.hpp"
 #include "texugo/com/ConnectionManager.hpp"
 #include "texugo/message/MessageParser.hpp"
-#include "texugo/log/Logger.hpp"
 
-
-// Insert message on port queue and remove from process queue
 void ProcessMessage::processMessage(const std::string& payload) {
     MessageParser parser(payload);
 
