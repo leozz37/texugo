@@ -10,22 +10,26 @@ void signalHandling(int) {
 }
 
 int main() {
+    // Handler exit signal
     signal(SIGINT, signalHandling);
 
     Logger::getInstance().logWarn("STARTING TEXUGO");
 
+    // Getting config from file
+    // TODO: save config to mongo?
     const std::string settingsPath = "../../resources/settings.json";
     Settings settings(settingsPath);
 
+    // Creating threads group
     boost::thread_group threads;
 
-    // Start Connections
-    threads.create_thread( [&]{
-        ConnectionManager::getInstance().startConnections(
-                settings.getReceiverAddresses(),
-                settings.getSenderAddresses());
-    } );
+    // Creating Receiver/Sender Connections
+    ConnectionManager::getInstance().createConnections(
+            settings.getReceiverAddresses(),
+            settings.getSenderAddresses());
 
+    // Starting Receiver Connections
+    threads.create_thread( [&]{ ConnectionManager::getInstance().startConnections(); } );
     threads.join_all();
 
     return 0;
