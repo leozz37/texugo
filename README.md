@@ -124,6 +124,12 @@ There's two files example, to use them do the follow commands:
 | `injector-multiple.py` | `$ python injector-multiple.py 3000 BBBBBBB Hello` |
 | `listener-port.py`     | `$ python listener-port.py 3005`                   |
 
+### Contributing
+
+Fell free to open a Pull Request, you're more then welcome to contribute!
+
+We use [emojis](https://gitmoji.carloscuesta.me) for commit messages, since it saves a lot of space showing what the commit it's about. We also use a _.clang-format_, please follow it.
+
 ### Running Tests
 
 ```bash

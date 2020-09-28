@@ -7,15 +7,16 @@
 #include <boost/asio.hpp>
 #include <boost/thread.hpp>
 
-class ConnectionManager {
+class ConnectionManager
+{
 public:
     ConnectionManager(const ConnectionManager& other) noexcept = delete;
-    ConnectionManager(ConnectionManager&& other) noexcept = delete;
-    ConnectionManager& operator = (const ConnectionManager& other) noexcept = delete;
-    ConnectionManager& operator = (ConnectionManager&& other) noexcept = delete;
+    ConnectionManager(ConnectionManager&& other) noexcept      = delete;
+    ConnectionManager& operator=(const ConnectionManager& other) noexcept = delete;
+    ConnectionManager& operator=(ConnectionManager&& other) noexcept = delete;
 
-    void createConnections(const std::unordered_map<std::string, std::string> &receiverAddresses,
-                           const std::unordered_map<std::string, std::string> &senderAddresses);
+    void createConnections(const std::unordered_map<std::string, std::string>& receiverAddresses,
+                           const std::unordered_map<std::string, std::string>& senderAddresses);
     void startConnections();
     void insertConnectionQueue(const std::string&, const std::string&);
 
@@ -24,7 +25,11 @@ public:
 private:
     ConnectionManager() noexcept = default;
 
-    enum CONNECTION_TYPE { RECEIVER, SENDER };
+    enum CONNECTION_TYPE
+    {
+        RECEIVER,
+        SENDER
+    };
 
     void createReceiverConnections(const std::unordered_map<std::string, std::string>&);
     void createSenderConnections(const std::unordered_map<std::string, std::string>&);
@@ -35,6 +40,8 @@ private:
     boost::asio::io_service m_ioService;
 
 
-    inline static std::unordered_map<std::string, std::unique_ptr<ReceiverConnection>> m_receiverConnections;
-    inline static std::unordered_map<std::string, std::unique_ptr<SenderConnection>> m_senderConnections;
+    inline static std::unordered_map<std::string, std::unique_ptr<ReceiverConnection>>
+        m_receiverConnections;
+    inline static std::unordered_map<std::string, std::unique_ptr<SenderConnection>>
+        m_senderConnections;
 };
