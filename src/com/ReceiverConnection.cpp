@@ -19,10 +19,7 @@ void Session::doRead() {
                                  [this, self](boost::system::error_code ec, std::size_t length) {
                                      if (!ec) {
                                         Logger::getInstance().logInfo(std::to_string(m_port) + " | Received message");
-//                                         ProcessMessage::getInstance().insertQueue(m_payload);
-                                        ProcessMessage processMessage;
-                                        processMessage.processMessage(m_payload);
-
+                                        ProcessMessage().processMessage(m_payload);
                                         doWrite("Received");
                                      }
                                  });

@@ -1,10 +1,10 @@
 #pragma once
 #include "texugo/log/Logger.hpp"
+#include <boost/asio.hpp>
 #include <cstdlib>
 #include <iostream>
 #include <memory>
 #include <queue>
-#include <boost/asio.hpp>
 
 using boost::asio::ip::tcp;
 
