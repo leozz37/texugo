@@ -26,7 +26,6 @@ addons:
         - COMPILER=g++-9
         - IS_COVERAGE_BUILD=1
 
-
 script:
     - mkdir build && cd build
     - cmake -DCMAKE_C_COMPILER=gcc-9 -DCMAKE_CXX_COMPILER=g++-9 --coverage ..

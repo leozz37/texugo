@@ -6,7 +6,7 @@
   },
   "receiverAddresses": [
     {
-      "AAAAAAA": "3000"
+      "ARDUINO": "3000"
     },
     {
       "BBBBBBB": "3001"
@@ -23,7 +23,7 @@
   ],
   "senderAddresses": [
     {
-      "FFFFFFF": "3005"
+      "ENDPOINT": "3005"
     },
     {
       "GGGGGGG": "3006"

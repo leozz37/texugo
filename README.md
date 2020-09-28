@@ -10,18 +10,25 @@
 [![Documentation](https://codedocs.xyz/leozz37/texugo.svg)](https://codedocs.xyz/leozz37/texugo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[Texugo](https://leozz37.github.io/texugo/) is a fast flexible multiplatform message gateway based on sockets, library free, made with Modern C++.
+[Texugo](https://leozz37.github.io/texugo/) is a fast multiplatform message gateway based on sockets, library free, for custom payload processing, flexible port routing and metrics monitoring.
+
+Since it uses socket, you don't need an external library to use Texugo. Compatible with C, C++, Java, Python, Golang, Rust, Node.js, C#, Arduino, Ruby, PHP, Assembly, and many more...
+
+Under construction, made with Modern C++.
 
 ## Features
 
--   End-to-end system that process messages, using [Boost.ASIO](https://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio.html);
+-   Library free. Run in any technology with support for sockets.
+-   End-to-end system, using [Boost.ASIO](https://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio.html);
 -   Flexible port binding;
+-   Custom message protocol (JSON, Protobuf, key-value, etc...);
 -   Reliably serve devices across multiple networks;
 -   Logging support with [spdlog](https://github.com/gabime/spdlog);
 -   Dependency managed by [CPM.cmake](https://github.com/TheLartians/CPM.cmake);
 -   Unit tests using [Catch2](https://github.com/catchorg/Catch20);
--   Support to build and run the binary on [Docker](https://www.docker.com/);
--   Support to docker-compose to run all the services dependencies;
+-   Functional tests usind [robot framework](https://robotframework.org/);
+-   Support to [Docker](https://www.docker.com/);
+-   Support to [docker-compose](https://docs.docker.com/compose/) to run all service dependencies;
 -   TODO: Storing messages and logs on [MongoDB](https://www.mongodb.com/);
 -   TODO: Metrics monitoring with [Prometheus](https://prometheus.io/);
 -   TODO: Data visualization with [Grafana](https://grafana.com/);
@@ -116,6 +123,12 @@ There's two files example, to use them do the follow commands:
 | `injector-single.py`   | `$ python injector-single.py 3000 ENDPOINT Hello`  |
 | `injector-multiple.py` | `$ python injector-multiple.py 3000 BBBBBBB Hello` |
 | `listener-port.py`     | `$ python listener-port.py 3005`                   |
+
+### Contributing
+
+Fell free to open a Pull Request, you're more then welcome to contribute!
+
+We use [emojis](https://gitmoji.carloscuesta.me) for commit messages, since it saves a lot of space showing what the commit it's about. We also use a _.clang-format_, please follow it.
 
 ### Running Tests
 
