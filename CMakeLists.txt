@@ -39,7 +39,7 @@ CPMFindPackage(
 
 add_compile_options(--coverage -O0)
 enable_testing()
-add_subdirectory(tests)
+add_subdirectory(tests/unit_tests)
 
 add_library(texugo STATIC
     src/com/ReceiverConnection.cpp
