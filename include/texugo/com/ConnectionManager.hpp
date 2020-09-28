@@ -15,8 +15,8 @@ public:
     ConnectionManager& operator=(const ConnectionManager& other) noexcept = delete;
     ConnectionManager& operator=(ConnectionManager&& other) noexcept = delete;
 
-    void createConnections(const std::unordered_map<std::string, std::string>& receiverAddresses,
-                           const std::unordered_map<std::string, std::string>& senderAddresses);
+    void createConnections(const std::unordered_map<std::string, std::string>&,
+                           const std::unordered_map<std::string, std::string>&);
     void startConnections();
     void insertConnectionQueue(const std::string&, const std::string&);
 
@@ -31,15 +31,10 @@ private:
         SENDER
     };
 
-    void createReceiverConnections(const std::unordered_map<std::string, std::string>&);
-    void createSenderConnections(const std::unordered_map<std::string, std::string>&);
-
     void createConnection(const std::unordered_map<std::string, std::string>&, CONNECTION_TYPE);
     void openReceiverConnections();
 
-    boost::asio::io_service m_ioService;
-
-
+    inline static boost::asio::io_service m_ioService;
     inline static std::unordered_map<std::string, std::unique_ptr<ReceiverConnection>>
         m_receiverConnections;
     inline static std::unordered_map<std::string, std::unique_ptr<SenderConnection>>

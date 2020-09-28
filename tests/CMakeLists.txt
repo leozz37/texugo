@@ -8,7 +8,6 @@ CPMAddPackage(
     VERSION 2.5.0)
 
 add_executable(texugo_tests
-        com/ManagerTest.cpp
         config/SettingsTest.cpp
         main/main.cpp)
 
