@@ -21,7 +21,6 @@ Under construction, made with Modern C++.
 -   Library free. Run in any technology with support for sockets.
 -   End-to-end system, using [Boost.ASIO](https://www.boost.org/doc/libs/1_66_0/doc/html/boost_asio.html);
 -   Flexible port binding;
--   Custom message protocol (JSON, Protobuf, key-value, etc...);
 -   Reliably serve devices across multiple networks;
 -   Logging support with [spdlog](https://github.com/gabime/spdlog);
 -   Dependency managed by [CPM.cmake](https://github.com/TheLartians/CPM.cmake);
