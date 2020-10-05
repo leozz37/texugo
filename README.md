@@ -4,8 +4,8 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/555c8f8825504a81804f4c41b75228cf)](https://www.codacy.com/manual/leozz37/texugo?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leozz37/texugo&amp;utm_campaign=Badge_Grade)
 [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/texugo/badge)](https://www.codefactor.io/repository/github/leozz37/texugo)
-[![Build Status](https://travis-ci.com/leozz37/texugo.svg?branch=master)](https://travis-ci.com/leozz37/texugo)
-[![Build status](https://ci.appveyor.com/api/projects/status/qqp2al1e827jx70m?svg=true)](https://ci.appveyor.com/project/leozz37/texugo)
+![CMake](https://github.com/leozz37/texugo/workflows/CMake/badge.svg)
+![Docker](https://github.com/leozz37/texugo/workflows/Docker/badge.svg)
 [![codecov](https://codecov.io/gh/leozz37/texugo/branch/master/graph/badge.svg)](https://codecov.io/gh/leozz37/texugo)
 [![Documentation](https://codedocs.xyz/leozz37/texugo.svg)](https://codedocs.xyz/leozz37/texugo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -29,9 +29,9 @@ Under construction, made with Modern C++.
 -   Functional tests usind [robot framework](https://robotframework.org/);
 -   Support to [Docker](https://www.docker.com/);
 -   Support to [docker-compose](https://docs.docker.com/compose/) to run all service dependencies;
+-   Metrics monitoring with [Prometheus](https://prometheus.io/);
+-   Data visualization with [Grafana](https://grafana.com/);
 -   TODO: Storing messages and logs on [MongoDB](https://www.mongodb.com/);
--   TODO: Metrics monitoring with [Prometheus](https://prometheus.io/);
--   TODO: Data visualization with [Grafana](https://grafana.com/);
 
 ## Installation
 

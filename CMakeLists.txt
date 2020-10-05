@@ -37,18 +37,27 @@ CPMFindPackage(
     VERSION 1.67.0
     FIND_PACKAGE_ARGUMENTS "COMPONENTS system thread")
 
+# Prometheus
+CPMFindPackage(
+    NAME prometheus
+    GITHUB_REPOSITORY jupp0r/prometheus-cpp
+    GIT_TAG v0.10.0
+    VERSION 0.10.0)
+
 add_compile_options(--coverage -O0)
 enable_testing()
-add_subdirectory(tests)
+add_subdirectory(tests/unit_tests)
 
 add_library(texugo STATIC
     src/com/ReceiverConnection.cpp
     src/com/ConnectionManager.cpp
+    src/com/SenderConnection.cpp
     src/config/Settings.cpp
     src/log/Logger.cpp
-        src/message/ProcessMessage.cpp
+    src/message/ProcessMessage.cpp
     src/message/MessageParser.cpp
-    src/com/SenderConnection.cpp)
+    src/metrics/MetricsExporter.cpp
+    src/metrics/MetricsMessage.cpp include/texugo/metrics/MetricsMessage.hpp)
 
 target_include_directories(texugo
     PUBLIC
@@ -61,6 +70,7 @@ target_include_directories(texugo
 target_link_libraries(texugo
     spdlog
     nlohmann_json
+    prometheus-cpp::pull
     Boost::system
     Boost::thread)
 

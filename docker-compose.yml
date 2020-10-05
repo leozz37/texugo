@@ -3,6 +3,27 @@ version: "3.5"
 services:
   texugo:
     build: .
+    image: leozz37/texugo:latest
     container_name: "texugo"
     network_mode: "host"
-    image: leozz37/texugo:latest
+
+  prometheus:
+    image: prom/prometheus
+    container_name: "prometheus"
+    network_mode: "host"
+    restart: always
+    ports:
+      - 9090:9090
+    volumes:
+      - ./resources/:/etc/prometheus/
+
+  grafana:
+    image: grafana/grafana
+    container_name: "grafana"
+    network_mode: "host"
+    user: "472"
+    restart: always
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
