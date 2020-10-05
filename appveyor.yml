@@ -11,21 +11,11 @@ configuration:
   - Release
 
 install:
-  - choco install xdelta3
+  - docker version
 
 init:
-  - cmd: cmake --version
+  - cmd: docker --version
   - cmd: msbuild /version
 
 build_script:
-  - cmd: cmake -B build
-  - cmd: cmake --build build
-
-only_commits:
-  files:
-    - include/
-    - resources/
-    - src/
-    - tests/
-    - appveyor.yml
-    - CMakeLists.txt
+  - cmd: docker build . -t texugo
