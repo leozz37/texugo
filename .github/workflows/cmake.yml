@@ -14,7 +14,7 @@ jobs:
 
             - name: Install CMake
               run: |
-                wget -O cmake.sh https://cmake.org/files/v3.16/cmake-3.16.0-Linux-x86_64.sh 
+                wget -O cmake.sh https://cmake.org/files/v3.16.3/cmake-3.16.3-Linux-x86_64.sh 
                 sudo sh cmake.sh --skip-license --exclude-subdir --prefix=/usr/local
                 export PATH=/usr/local/bin:$PATH
                 cmake --version
