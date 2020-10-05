@@ -11,13 +11,13 @@ jobs:
 
             - name: Checkout repository
               id: cache-cpm
-              uses: actions/checkout@v2
+                            
+            - name: Set up cache
+              uses: actions/cache@v2
               with:
                 path: ~/cpm-cache
                 key: cpm
 
-            - name: Set up cache
-              uses: actions/cache@v2
 
             - name: Install CMake
               run: |
