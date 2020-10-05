@@ -18,4 +18,5 @@ init:
   - cmd: msbuild /version
 
 build_script:
+  - cmd: bcdedit /set hypervisorlaunchtype auto
   - cmd: docker build . -t texugo
