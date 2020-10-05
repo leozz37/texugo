@@ -18,6 +18,9 @@ jobs:
                 sudo sh cmake.sh --skip-license --exclude-subdir --prefix=/usr/local
                 export PATH=/usr/local/bin:$PATH
                 cmake --version
+                
+            - name: Install Prometheus dependencies
+              run: sudo apt-get install -y zlib1g-dev libcurl4-gnutls-dev
               
             - name: Run tests
               run: |
