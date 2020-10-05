@@ -51,11 +51,13 @@ add_subdirectory(tests/unit_tests)
 add_library(texugo STATIC
     src/com/ReceiverConnection.cpp
     src/com/ConnectionManager.cpp
+    src/com/SenderConnection.cpp
     src/config/Settings.cpp
     src/log/Logger.cpp
-        src/message/ProcessMessage.cpp
+    src/message/ProcessMessage.cpp
     src/message/MessageParser.cpp
-    src/com/SenderConnection.cpp src/metrics/MetricsExporter.cpp include/texugo/metrics/MetricsExporter.hpp)
+    src/metrics/MetricsExporter.cpp
+    src/metrics/MetricsMessage.cpp)
 
 target_include_directories(texugo
     PUBLIC
