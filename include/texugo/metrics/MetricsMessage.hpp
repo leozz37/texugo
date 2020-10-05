@@ -1,0 +1,8 @@
+//
+// Created by Leonardo Lima on 05/10/20.
+//
+
+#ifndef TEXUGO_METRICSMESSAGE_HPP
+#define TEXUGO_METRICSMESSAGE_HPP
+
+#endif //TEXUGO_METRICSMESSAGE_HPP
