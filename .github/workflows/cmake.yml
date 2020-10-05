@@ -19,11 +19,9 @@ jobs:
                 export PATH=/usr/local/bin:$PATH
                 cmake --version
               
-            - name: Create build directory
-              run: mkdir build && cd build
-
             - name: Run tests
               run: |
+                mkdir build && cd build
                 cmake ..
                 make -j2
                 ctest -R texugo_tests -V -j2
