@@ -57,7 +57,7 @@ add_library(texugo STATIC
     src/message/ProcessMessage.cpp
     src/message/MessageParser.cpp
     src/metrics/MetricsExporter.cpp
-    src/metrics/MetricsMessage.cpp)
+    src/metrics/MetricsMessage.cpp include/texugo/metrics/MetricsMessage.hpp)
 
 target_include_directories(texugo
     PUBLIC

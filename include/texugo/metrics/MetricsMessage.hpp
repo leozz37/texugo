@@ -1,8 +1,15 @@
-//
-// Created by Leonardo Lima on 05/10/20.
-//
+#pragma once
+#include <prometheus/counter.h>
+#include <prometheus/exposer.h>
+#include <prometheus/registry.h>
 
-#ifndef TEXUGO_METRICSMESSAGE_HPP
-#define TEXUGO_METRICSMESSAGE_HPP
+class MetricsMessage
+{
+public:
+    MetricsMessage(const std::string&);
+    void incrementCounter();
 
-#endif //TEXUGO_METRICSMESSAGE_HPP
+private:
+    std::shared_ptr<prometheus::Registry> m_registry;
+    prometheus::Counter * m_counter;
+};
