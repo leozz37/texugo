@@ -10,9 +10,10 @@ jobs:
         steps:
 
             - name: Checkout repository
-              id: cache-cpm
-                            
+              uses: actions/checkout@v2
+
             - name: Set up cache
+              id: cache-cpm
               uses: actions/cache@v2
               with:
                 path: ~/cpm-cache
