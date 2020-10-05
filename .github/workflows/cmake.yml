@@ -17,7 +17,9 @@ jobs:
               uses: actions/cache@v2
               with:
                 path: ~/cpm-cache
-                key: cpm
+                key: ${{ runner.os }}-cpm-${{ hashFiles('**/') }}
+                restore-keys: |
+                  ${{ runner.os }}-cpm-
 
 
             - name: Install CMake
