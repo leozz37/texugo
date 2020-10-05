@@ -10,6 +10,9 @@ platform:
 configuration:
   - Release
 
+install:
+  - choco install xdelta3
+
 init:
   - cmd: cmake --version
   - cmd: msbuild /version
