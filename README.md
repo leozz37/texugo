@@ -29,9 +29,9 @@ Under construction, made with Modern C++.
 -   Functional tests usind [robot framework](https://robotframework.org/);
 -   Support to [Docker](https://www.docker.com/);
 -   Support to [docker-compose](https://docs.docker.com/compose/) to run all service dependencies;
+-   Metrics monitoring with [Prometheus](https://prometheus.io/);
+-   Data visualization with [Grafana](https://grafana.com/);
 -   TODO: Storing messages and logs on [MongoDB](https://www.mongodb.com/);
--   TODO: Metrics monitoring with [Prometheus](https://prometheus.io/);
--   TODO: Data visualization with [Grafana](https://grafana.com/);
 
 ## Installation
 
