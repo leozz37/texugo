@@ -40,17 +40,17 @@ Follow these steps:
 ### Clone this repository
 
 ```bash
-$ git clone https://github.com/leozz37/texugo.git
+> git clone https://github.com/leozz37/texugo.git
 ```
 
 ### Create a build directory and build binary
 
 ```bash
-$ mkdir build && cd build
+> mkdir build && cd build
 
-$ cmake ..
+> cmake ..
 
-$ make -j4
+> make -j4
 ```
 
 
@@ -59,19 +59,19 @@ $ make -j4
 Building the image:
 
 ```bash
-$ docker build . -t texugo
+> docker build . -t texugo
 ```
 
 Running the image:
 
 ```bash
-$ docker run --net host texugo
+> docker run --net host texugo
 ```
 
 Running docker compose
 
 ```bash
-$ docker-compose up
+> docker-compose up
 ```
 
 ### DockerHub Image
@@ -133,7 +133,7 @@ We use [emojis](https://gitmoji.carloscuesta.me) for commit messages, since it s
 ### Running Tests
 
 ```bash
-$ cd build/tests
+> cd build/tests
 
-$ ctest -V
+> ctest -V
 ```
