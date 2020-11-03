@@ -78,6 +78,10 @@ Running docker compose
 
 You can find the latest image version [here](https://hub.docker.com/repository/docker/leozz37/texugo);
 
+```bash
+> docker pull leozz37/texugo
+```
+
 ## Server Configs
 
 The routing addresses are setted up at the _settings.json_ file. You can choose the receiver addresses, and the sender addresses:
