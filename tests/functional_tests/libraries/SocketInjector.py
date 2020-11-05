@@ -1,8 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 import json
-import queue
 import socket
 import threading
+try:
+    import queue
+except ImportError:
+    import Queue as queue
 
 host = "127.0.0.1"
 
