@@ -16,18 +16,18 @@ class SocketInjector:
         return q.get()
 
 
-def open_connection(self, port, q):
+def open_connection(port, q):
     socket_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     socket_conn.bind((host, port))
     socket_conn.listen(1)
 
-    con = socket_conn.accept()
+    con, _ = socket_conn.accept()
     payload = con.recv(1024)
     message = payload.decode('utf-8')
     q.put(message)
 
 
-def send_message(self, port, message, destination):
+def send_message(port, message, destination):
     socket_conn = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     payload = {
@@ -39,3 +39,8 @@ def send_message(self, port, message, destination):
 
     socket_conn.connect((host, port))
     socket_conn.sendall(dumped_message)
+
+
+if __name__ == '__main__':
+    injector = SocketInjector()
+    print(injector.verify_message(3005, 3001, "test", "ENDPOINT"))

@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.6 on darwin)" generated="20201104 23:40:26.354" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.8.6 on darwin)" generated="20201105 06:19:27.755" rpa="false">
 <suite id="s1" name="Socket Send Message" source="/Users/leo/Documents/codes/texugo/tests/functional_tests/tests/socket_send_message.robot">
-<test id="s1-t1" name="Running Texugo Docker Image">
-<kw name="Run Texugo" library="Texugo">
-<status status="PASS" starttime="20201104 23:40:26.452" endtime="20201104 23:40:26.628"></status>
-</kw>
+<test id="s1-t1" name="Send Messages Through Sockets">
 <kw name="Verify Message" library="SocketInjector">
 <arguments>
 <arg>${port1}</arg>
@@ -15,16 +12,19 @@
 <assign>
 <var>${result}</var>
 </assign>
-<msg timestamp="20201104 23:40:26.630" level="FAIL">ConnectionRefusedError: [Errno 61] Connection refused</msg>
-<status status="FAIL" starttime="20201104 23:40:26.628" endtime="20201104 23:40:26.630"></status>
+<msg timestamp="20201105 06:19:27.860" level="INFO">Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/local/Cellar/python@3.8/3.8.6/Frameworks/Python.framework/Versions/3.8/lib/python3.8/threading.py", line 932, in _bootstrap_inner</msg>
+<msg timestamp="20201105 06:19:27.861" level="FAIL">TypeError: send_message() missing 1 required positional argument: 'destination'</msg>
+<status status="FAIL" starttime="20201105 06:19:27.859" endtime="20201105 06:19:27.861"></status>
 </kw>
 <timeout value="1 minute"></timeout>
-<status status="FAIL" starttime="20201104 23:40:26.451" endtime="20201104 23:40:26.630" critical="yes">ConnectionRefusedError: [Errno 61] Connection refused</status>
+<status status="FAIL" starttime="20201105 06:19:27.859" endtime="20201105 06:19:27.861" critical="yes">TypeError: send_message() missing 1 required positional argument: 'destination'</status>
 </test>
 <doc>
 Testing Texugo Sockets Connection
 </doc>
-<status status="FAIL" starttime="20201104 23:40:26.355" endtime="20201104 23:40:26.631"></status>
+<status status="FAIL" starttime="20201105 06:19:27.756" endtime="20201105 06:19:27.861"></status>
 </suite>
 <statistics>
 <total>
