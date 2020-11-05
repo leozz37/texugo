@@ -12,7 +12,7 @@
 
 [Texugo](https://leozz37.github.io/texugo/) is a fast multiplatform message gateway based on sockets, library free, for custom payload processing, flexible port routing and metrics monitoring.
 
-Since it uses socket, you don't need an external library to use Texugo. Compatible with C, C++, Java, Python, Golang, Rust, Node.js, C#, Arduino, Ruby, PHP, Assembly, and many more...
+Since Texugo uses sockets, you don't need an external library to use it. Compatible with any technology with support to network.
 
 Under construction, made with Modern C++.
 
@@ -25,7 +25,7 @@ Under construction, made with Modern C++.
 -   Logging support with [spdlog](https://github.com/gabime/spdlog);
 -   Dependency managed by [CPM.cmake](https://github.com/TheLartians/CPM.cmake);
 -   Unit tests using [Catch2](https://github.com/catchorg/Catch20);
--   Functional tests usind [robot framework](https://robotframework.org/);
+-   Functional tests using [robot framework](https://robotframework.org/);
 -   Support to [Docker](https://www.docker.com/);
 -   Support to [docker-compose](https://docs.docker.com/compose/) to run all service dependencies;
 -   Metrics monitoring with [Prometheus](https://prometheus.io/);
