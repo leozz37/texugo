@@ -16,7 +16,7 @@ ${destination}  ENDPOINT
 
 *** Test Cases ***
 Send Messages Through Sockets
-#    Run texugo
+    Run texugo
     ${result} =         Verify message  ${port1}    ${port2}    ${message}      ${destination}
     Should be equal     ${result}   ${message}
-#    Kill texugo
+    Kill texugo

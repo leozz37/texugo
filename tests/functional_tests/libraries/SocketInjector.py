@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python2
 import json
 import queue
 import socket
@@ -41,6 +41,6 @@ def send_message(port, message, destination):
     socket_conn.sendall(dumped_message)
 
 
-if __name__ == '__main__':
-    injector = SocketInjector()
-    print(injector.verify_message(3005, 3001, "test", "ENDPOINT"))
+# if __name__ == '__main__':
+#     injector = SocketInjector()
+#     print(injector.verify_message(3005, 3001, "test", "ENDPOINT"))
