@@ -50,6 +50,14 @@ Create a build directory and build the binary:
 > make -j4
 ```
 
+## Running Tests
+
+```bash
+> cd build/tests
+
+> ctest -R texugo_tests -V -j2
+```
+
 ## Docker
 
 Building the image:
@@ -70,7 +78,7 @@ Running docker compose:
 > docker-compose up
 ```
 
-### DockerHub Image
+## DockerHub Image
 
 You can find the latest image version [here](https://hub.docker.com/repository/docker/leozz37/texugo);
 
@@ -114,7 +122,7 @@ Sender Addresses are the ports listening. Make sure to have a service binded to 
   ]
 ```
 
-### Using examples
+## Using examples
 
 Run the listener and run one of the injectors:
 
@@ -124,16 +132,9 @@ Run the listener and run one of the injectors:
 | `injector-multiple.py` | `$ python injector-multiple.py 3000 BBBBBBB Hello` |
 | `listener-port.py`     | `$ python listener-port.py 3005`                   |
 
-### Contributing
+## Contributing
 
 Fell free to open a Pull Request, you're more then welcome to contribute!
 
 We use [emojis](https://gitmoji.carloscuesta.me) for commit messages, since it saves a lot of space showing what the commit it's about. We also use a _.clang-format_, please follow it.
 
-### Running Tests
-
-```bash
-> cd build/tests
-
-> ctest -V
-```
