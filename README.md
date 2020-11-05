@@ -52,7 +52,6 @@ $ cmake ..
 $ make -j4
 ```
 
-
 ## Docker
 
 Building the image:

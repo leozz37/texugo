@@ -6,7 +6,7 @@
 class MetricsMessage
 {
 public:
-    MetricsMessage(const std::string&);
+    explicit MetricsMessage(const std::string&);
     void incrementCounter();
 
 private:

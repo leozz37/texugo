@@ -15,9 +15,9 @@ def main():
     count = 0
 
     while True:
-        con, client = socket_conn.accept()
+        con, _ = socket_conn.accept()
         payload = con.recv(1024)
-        message = payload.decode('utf-8')
+        print(payload.decode('utf-8'))
         count += 1
         print(count)
 
