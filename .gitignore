@@ -53,3 +53,11 @@
 # Vue GitHub Pages
 *node_modules
 *dist
+
+# Python
+*/venv
+*/__pycache__
+
+# Robot Framework
+tests/functional_tests/output/
+tests/functional_tests/tests/output

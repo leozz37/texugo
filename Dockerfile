@@ -20,8 +20,8 @@ WORKDIR /build-docker
 
 # Building texugo
 RUN cmake .. \
- && make -j4
+ && make -j8
 
 # Running texugo
 WORKDIR /build-docker/bin
-ENTRYPOINT [ "./texugo_process" ]
+CMD [ "./texugo_process" ]
