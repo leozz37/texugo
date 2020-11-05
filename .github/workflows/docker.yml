@@ -24,6 +24,6 @@ jobs:
 
             - name: Run Functional Tests
               run: |
-                sudo pip install robotframework
+                sudo pip install robotframework docker
                 cd tests/functional_tests/
                 robot -P libraries -d output tests
