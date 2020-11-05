@@ -34,15 +34,13 @@ Under construction, made with Modern C++.
 
 ## Installation
 
-Follow these steps:
-
-### Clone this repository
+Clone this repository:
 
 ```bash
 > git clone https://github.com/leozz37/texugo.git
 ```
 
-### Create a build directory and build binary
+Create a build directory and build the binary:
 
 ```bash
 > mkdir build && cd build
@@ -66,7 +64,7 @@ Running the image:
 > docker run --net host texugo
 ```
 
-Running docker compose
+Running docker compose:
 
 ```bash
 > docker-compose up
@@ -118,7 +116,7 @@ Sender Addresses are the ports listening. Make sure to have a service binded to 
 
 ### Using examples
 
-There's two files example, to use them do the follow commands:
+Run the listener and run one of the injectors:
 
 | File name              | Run command                                        |
 | ---------------------- | -------------------------------------------------- |
