@@ -1,5 +1,6 @@
 *** Settings ***
 Library         SocketInjector.py
+Library         Texugo.py
 Test Timeout    1 minute
 
 Documentation
@@ -15,5 +16,7 @@ ${destination}  ENDPOINT
 
 *** Test Cases ***
 Running Texugo Docker Image
+    Run texugo
     ${result} =         Verify message  ${port1}    ${port2}    ${message}  ${destination}
     Should be equal     ${result}   ${message}
+    Kill texugo
