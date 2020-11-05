@@ -14,3 +14,12 @@ jobs:
 
             - name: Build Image
               run: docker build . -t texugo
+
+            - name: Run Unit Tests
+              run: docker run --entrypoint "./texugo_tests" texugo
+
+            - name: Run Functional Tests
+              run: |
+                pip install robotframework
+                cd tests/functional_tests/
+                robot -P libraries -d output tests
