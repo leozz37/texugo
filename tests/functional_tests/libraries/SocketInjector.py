@@ -37,12 +37,12 @@ def send_message(port, message, destination):
         "message": message
     }
 
-    dumped_message = bytes(json.dumps(payload), 'utf-8')
+    dumped_message = bytes(json.dumps(payload).encode("UTF-8"))
 
     socket_conn.connect((host, port))
     socket_conn.sendall(dumped_message)
 
 
-# if __name__ == '__main__':
-#     injector = SocketInjector()
-#     print(injector.verify_message(3005, 3001, "test", "ENDPOINT"))
+if __name__ == '__main__':
+    injector = SocketInjector()
+    print(injector.verify_message(3005, 3001, "test", "ENDPOINT"))
