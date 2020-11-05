@@ -24,10 +24,9 @@ def open_connection(port, q):
     socket_conn.bind((host, port))
     socket_conn.listen(1)
 
-    con, _ = socket_conn.accept()
-    payload = con.recv(1024)
-    message = payload.decode('utf-8')
-    q.put(message)
+    conn, _ = socket_conn.accept()
+    payload = str(conn.recv(1024)).encode("utf-8")
+    q.put(payload)
 
 
 def send_message(port, message, destination):
