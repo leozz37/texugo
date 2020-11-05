@@ -19,7 +19,7 @@ COPY . .
 WORKDIR /build-docker
 
 # Building texugo
-RUN cmake -DCPM_SOURCE_CACHE=/dev/cpm-cache .. \
+RUN cmake .. \
  && make -j8
 
 # Running texugo
