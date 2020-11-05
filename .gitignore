@@ -53,3 +53,6 @@
 # Vue GitHub Pages
 *node_modules
 *dist
+
+# Python
+*/venv

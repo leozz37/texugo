@@ -8,7 +8,7 @@
      }
 
  protected:
-     const std::string configPath = "../../../resources/settings.json";
+     const std::string configPath = "../../resources/settings.json";
      Settings *settings;
  };
 
