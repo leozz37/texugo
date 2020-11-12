@@ -37,25 +37,25 @@ Under construction, made with Modern C++.
 Clone this repository:
 
 ```bash
-> git clone https://github.com/leozz37/texugo.git
+$ git clone https://github.com/leozz37/texugo.git
 ```
 
 Create a build directory and build the binary:
 
 ```bash
-> mkdir build && cd build
+$ mkdir build && cd build
 
-> cmake ..
+$ cmake ..
 
-> make -j4
+$ make -j4
 ```
 
 ## Running Tests
 
 ```bash
-> cd build/tests
+$ cd build/tests
 
-> ctest -R texugo_tests -V -j2
+$ ctest -R texugo_tests -V -j2
 ```
 
 ## Docker
@@ -63,19 +63,19 @@ Create a build directory and build the binary:
 Building the image:
 
 ```bash
-> docker build . -t texugo
+$ docker build . -t texugo
 ```
 
 Running the image:
 
 ```bash
-> docker run --net host texugo
+$ docker run --net host texugo
 ```
 
 Running docker compose:
 
 ```bash
-> docker-compose up
+$ docker-compose up
 ```
 
 ## DockerHub Image
@@ -83,7 +83,7 @@ Running docker compose:
 You can find the latest image version [here](https://hub.docker.com/repository/docker/leozz37/texugo);
 
 ```bash
-> docker pull leozz37/texugo
+$ docker pull leozz37/texugo
 ```
 
 ## Server Configs
