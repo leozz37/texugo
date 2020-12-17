@@ -9,7 +9,7 @@
     "deploy": "sh deploy.sh"
   },
   "dependencies": {
-    "core-js": "^3.7.0",
+    "core-js": "^3.8.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
