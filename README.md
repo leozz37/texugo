@@ -24,7 +24,7 @@ Under construction, made with Modern C++.
 - [Examples](#examples)
 - [Testing](#testing)
 - [Contributing](#contributing)
-- [Licnse](#license)
+- [License](#license)
 
 ## Features
 
