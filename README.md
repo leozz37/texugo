@@ -180,7 +180,7 @@ $ ctest -R texugo_tests -V -j2
 To run the functional tests, you must have [Robot Framework](https://pypi.org/project/robotframework/) installed:
 
 ```shell
-$ cd tests/functional_tests/
+$ cd tests/functional/
 
 $ robot -P libraries -d output tests
 ```
