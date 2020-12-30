@@ -6,7 +6,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/leozz37/texugo/badge)](https://www.codefactor.io/repository/github/leozz37/texugo)
 ![CMake](https://github.com/leozz37/texugo/workflows/CMake/badge.svg)
 ![Docker](https://github.com/leozz37/texugo/workflows/Docker/badge.svg)
-[![codecov](https://codecov.io/gh/leozz37/texugo/branch/master/graph/badge.svg)](https://codecov.io/gh/leozz37/texugo)
+[![codecov](https://codecov.io/gh/leozz37/texugo/branch/main/graph/badge.svg)](https://codecov.io/gh/leozz37/texugo)
 [![Documentation](https://codedocs.xyz/leozz37/texugo.svg)](https://codedocs.xyz/leozz37/texugo/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
