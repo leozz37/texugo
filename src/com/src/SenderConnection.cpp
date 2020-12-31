@@ -1,4 +1,4 @@
-#include "SenderConnection.hpp"
+#include "com/SenderConnection.hpp"
 #include "log/Logger.hpp"
 
 using boost::asio::ip::tcp;

@@ -1,7 +1,8 @@
 #include <catch2/catch.hpp>
-#include "texugo/config/Settings.hpp"
+// FIXME: fix this include in CMake
+#include "include/config/Settings.hpp"
 
- class SettingsFixture {
+class SettingsFixture {
  public:
      SettingsFixture() {
          settings = new Settings(configPath);

@@ -7,13 +7,15 @@ CPMAddPackage(
     GITHUB_REPOSITORY catchorg/Catch2
     VERSION 2.5.0)
 
+add_subdirectory(config)
+
 add_executable(texugo_tests
-        config/SettingsTest.cpp
-        main/main.cpp)
+    main.cpp
+)
 
 target_link_libraries(texugo_tests
-        texugo
-        Catch2)
+    Catch2
+)
 
 enable_testing()
 target_link_libraries(texugo_tests --coverage)

@@ -1,0 +1,5 @@
+add_subdirectory(com)
+add_subdirectory(config)
+add_subdirectory(log)
+add_subdirectory(message)
+add_subdirectory(metrics)

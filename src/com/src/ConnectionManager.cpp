@@ -1,5 +1,5 @@
-#include "ReceiverConnection.hpp"
-#include "ConnectionManager.hpp"
+#include "com/ReceiverConnection.hpp"
+#include "com/ConnectionManager.hpp"
 #include "log/Logger.hpp"
 #include <stdexcept>
 

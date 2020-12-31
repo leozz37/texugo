@@ -1,6 +1,6 @@
-#include "texugo/config/Settings.hpp"
-#include "texugo/com/ConnectionManager.hpp"
-#include "texugo/log/Logger.hpp"
+#include "config/Settings.hpp"
+#include "com/ConnectionManager.hpp"
+#include "log/Logger.hpp"
 #include <csignal>
 #include <memory>
 

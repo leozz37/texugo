@@ -1,9 +1,15 @@
-add_library(message STATIC
-    MessageParser.cpp
-    ProcessMessage.cpp
-)
+project(log)
 
-target_include_directories(message PUBLIC
-    $<INSTALL_INTERFACE:include>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-)
+add_library(${PROJECT_NAME}
+        src/Logger.cpp
+        )
+
+add_library(texugo::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+
+target_include_directories(${PROJECT_NAME}
+        PUBLIC ${PROJECT_SOURCE_DIR}/include
+        )
+
+target_link_libraries(${PROJECT_NAME}
+        spdlog
+        )

@@ -1,6 +1,6 @@
-#include "ProcessMessage.hpp"
+#include "message/ProcessMessage.hpp"
 #include "com/ConnectionManager.hpp"
-#include "MessageParser.hpp"
+#include "message/MessageParser.hpp"
 
 void ProcessMessage::processMessage(const std::string& payload)
 {

@@ -1,8 +1,20 @@
-add_library(config STATIC
-    Settings.cpp
-)
+project(com)
 
-target_include_directories(config PUBLIC
-    $<INSTALL_INTERFACE:include>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
-)
+add_library(${PROJECT_NAME}
+        src/ConnectionManager.cpp
+        src/ReceiverConnection.cpp
+        src/SenderConnection.cpp
+        )
+
+add_library(texugo::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+
+target_include_directories(${PROJECT_NAME}
+        PUBLIC ${PROJECT_SOURCE_DIR}/include
+       )
+
+target_link_libraries(${PROJECT_NAME}
+        texugo::log
+        texugo::message
+        Boost::system
+        Boost::thread
+        )

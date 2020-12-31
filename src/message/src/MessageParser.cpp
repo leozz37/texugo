@@ -1,4 +1,4 @@
-#include "MessageParser.hpp"
+#include "message/MessageParser.hpp"
 #include "log/Logger.hpp"
 
 MessageParser::MessageParser(const std::string& message)

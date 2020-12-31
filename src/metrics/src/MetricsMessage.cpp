@@ -1,5 +1,5 @@
-#include "MetricsMessage.hpp"
-#include "MetricsExporter.hpp"
+#include "metrics/MetricsMessage.hpp"
+#include "metrics/MetricsExporter.hpp"
 
 MetricsMessage::MetricsMessage(const std::string& name)
 : m_registry(std::make_shared<prometheus::Registry>())
