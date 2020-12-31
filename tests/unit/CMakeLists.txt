@@ -8,17 +8,3 @@ CPMAddPackage(
     VERSION 2.5.0)
 
 add_subdirectory(config)
-
-add_executable(texugo_tests
-    main.cpp
-)
-
-target_link_libraries(texugo_tests
-    Catch2
-)
-
-enable_testing()
-target_link_libraries(texugo_tests --coverage)
-add_test(NAME texugo_tests COMMAND texugo_tests)
-
-

@@ -1,6 +1,6 @@
+#define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
-// FIXME: fix this include in CMake
-#include "include/config/Settings.hpp"
+#include "config/Settings.hpp"
 
 class SettingsFixture {
  public:
@@ -9,7 +9,7 @@ class SettingsFixture {
      }
 
  protected:
-     const std::string configPath = "../../resources/settings.json";
+     const std::string configPath = "../../../../resources/settings.json";
      Settings *settings;
  };
 

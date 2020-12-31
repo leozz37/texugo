@@ -20,7 +20,7 @@ jobs:
               run: docker build . -t texugo
 
             - name: Run Unit Tests
-              run: docker run --entrypoint "./texugo_tests" texugo
+              run: docker run --entrypoint "ctest -R texugo_test -V -j2" texugo
 
             - name: Run Functional Tests
               run: |

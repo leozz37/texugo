@@ -46,7 +46,7 @@ CPMFindPackage(
 
 add_executable(${PROJECT_NAME}
     src/Texugo.cpp
-)
+        )
 
 add_subdirectory(src)
 
@@ -58,4 +58,5 @@ target_link_libraries(${PROJECT_NAME}
     metrics
 )
 
+enable_testing()
 add_subdirectory(tests/unit)
