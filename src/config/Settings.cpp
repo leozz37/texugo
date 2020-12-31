@@ -1,4 +1,4 @@
-#include "config/Settings.hpp"
+#include "Settings.hpp"
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <utility>

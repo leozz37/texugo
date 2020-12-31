@@ -1,17 +1,16 @@
-project(message)
-
-add_library(${PROJECT_NAME}
-        src/MessageParser.cpp
-        src/ProcessMessage.cpp
+add_library(message STATIC
+        MessageParser.cpp
+        ProcessMessage.cpp
         )
 
-add_library(texugo::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+add_library(texugo::message ALIAS message)
 
-target_include_directories(${PROJECT_NAME}
-        PUBLIC ${PROJECT_SOURCE_DIR}/include
+target_include_directories(message
+        PUBLIC
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/.>
         )
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(message
         texugo::com
         texugo::log
         nlohmann_json

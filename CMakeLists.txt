@@ -3,9 +3,9 @@ project(texugo)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
+#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
 # Downloading CPM file
 set(CPM_DOWNLOAD_VERSION 0.27.2)
@@ -44,19 +44,5 @@ CPMFindPackage(
     GIT_TAG v0.10.0
     VERSION 0.10.0)
 
-add_executable(${PROJECT_NAME}
-    src/Texugo.cpp
-        )
-
 add_subdirectory(src)
-
-target_link_libraries(${PROJECT_NAME}
-    com
-    config
-    log
-    message
-    metrics
-)
-
-enable_testing()
 add_subdirectory(tests/unit)

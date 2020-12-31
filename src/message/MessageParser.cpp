@@ -1,5 +1,6 @@
-#include "message/MessageParser.hpp"
-#include "log/Logger.hpp"
+#include "MessageParser.hpp"
+#include "Logger.hpp"
+#include <nlohmann/json.hpp>
 
 MessageParser::MessageParser(const std::string& message)
 {

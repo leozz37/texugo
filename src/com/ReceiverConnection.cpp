@@ -1,5 +1,5 @@
-#include "com/ReceiverConnection.hpp"
-#include "message/ProcessMessage.hpp"
+#include "ReceiverConnection.hpp"
+#include "ProcessMessage.hpp"
 
 using boost::asio::ip::tcp;
 

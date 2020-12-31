@@ -1,6 +1,6 @@
-#include "com/ReceiverConnection.hpp"
-#include "com/ConnectionManager.hpp"
-#include "log/Logger.hpp"
+#include "ReceiverConnection.hpp"
+#include "ConnectionManager.hpp"
+#include "Logger.hpp"
 #include <stdexcept>
 
 void ConnectionManager::createConnections(

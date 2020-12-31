@@ -1,15 +1,14 @@
-project(log)
-
-add_library(${PROJECT_NAME}
-        src/Logger.cpp
+add_library(log STATIC
+        Logger.cpp
         )
 
-add_library(texugo::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+add_library(texugo::log ALIAS log)
 
-target_include_directories(${PROJECT_NAME}
-        PUBLIC ${PROJECT_SOURCE_DIR}/include
+target_include_directories(log
+        PUBLIC
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/.>
         )
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(log
         spdlog
         )

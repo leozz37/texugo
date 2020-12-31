@@ -1,16 +1,15 @@
-project(metrics)
-
-add_library(${PROJECT_NAME}
-        src/MetricsExporter.cpp
-        src/MetricsMessage.cpp
+add_library(metrics STATIC
+        MetricsExporter.cpp
+        MetricsMessage.cpp
         )
 
-add_library(texugo::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
+add_library(texugo::metrics ALIAS metrics)
 
-target_include_directories(${PROJECT_NAME}
-        PUBLIC ${PROJECT_SOURCE_DIR}/include
+target_include_directories(metrics
+        PUBLIC
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/.>
         )
 
-target_link_libraries(${PROJECT_NAME}
+target_link_libraries(metrics
         prometheus-cpp::pull
         )

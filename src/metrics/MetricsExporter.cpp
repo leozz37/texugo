@@ -1,4 +1,4 @@
-#include "metrics/MetricsExporter.hpp"
+#include "MetricsExporter.hpp"
 
 void MetricsExporter::start(const std::string& bindAddress)
 {
