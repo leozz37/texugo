@@ -12,15 +12,11 @@ jobs:
             python-version: [3.8]
 
         steps:
-
             - name: Checkout repository
               uses: actions/checkout@v2
 
             - name: Build Image
               run: docker build . -t texugo
-
-            - name: Run Unit Tests
-              run: docker run --entrypoint "ctest -R texugo_test -V -j2" texugo
 
             - name: Run Functional Tests
               run: |
