@@ -24,4 +24,4 @@ RUN cmake .. \
 
 # Running texugo
 WORKDIR /build-docker/bin
-CMD [ "./texugo_process" ]
+CMD [ "./texugo" ]
