@@ -1,5 +1,5 @@
-#include "texugo/metrics/MetricsMessage.hpp"
-#include "texugo/metrics/MetricsExporter.hpp"
+#include "MetricsMessage.hpp"
+#include "MetricsExporter.hpp"
 
 MetricsMessage::MetricsMessage(const std::string& name)
 : m_registry(std::make_shared<prometheus::Registry>())

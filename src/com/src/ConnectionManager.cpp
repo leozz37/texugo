@@ -1,6 +1,6 @@
-#include "texugo/com/ReceiverConnection.hpp"
-#include "texugo/com/ConnectionManager.hpp"
-#include "texugo/log/Logger.hpp"
+#include "ReceiverConnection.hpp"
+#include "ConnectionManager.hpp"
+#include "log/Logger.hpp"
 #include <stdexcept>
 
 void ConnectionManager::createConnections(
