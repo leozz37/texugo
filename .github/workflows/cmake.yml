@@ -38,4 +38,6 @@ jobs:
                 make -j2
 
             - name: Run Unit Tests
-              run: ctest -R texugo_test_ -V -j2
+              run: |
+                cd ./tests/unit
+                ctest -V -j2
