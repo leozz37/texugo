@@ -41,13 +41,13 @@ Under construction, made with Modern C++.
 
 Clone this repository:
 
-```bash
+```shell
 $ git clone https://github.com/leozz37/texugo.git
 ```
 
 Create a build directory and build the binary:
 
-```bash
+```shell
 $ mkdir build && cd build
 
 $ cmake ..
@@ -129,7 +129,7 @@ $ cd build/tests
 $ ctest -R texugo_tests -V -j2
 ```
 
-## Docker
+## Running Docker Image
 
 Building the image:
 

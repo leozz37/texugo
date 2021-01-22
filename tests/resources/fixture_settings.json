@@ -1,0 +1,35 @@
+{
+  "settings": {
+    "mongoPath": "127.0.0.1:27017",
+    "logPath": "../log/log.txt",
+    "metricsAddress": "127.0.0.1:8080"
+  },
+  "receiverAddresses": [
+    {
+      "ARDUINO": "2999"
+    },
+    {
+      "BBBBBBB": "3001"
+    },
+    {
+      "CCCCCCC": "3002"
+    },
+    {
+      "DDDDDDD": "3003"
+    },
+    {
+      "EEEEEEE": "3004"
+    }
+  ],
+  "senderAddresses": [
+    {
+      "ENDPOINT": "3005"
+    },
+    {
+      "GGGGGGG": "3006"
+    },
+    {
+      "HHHHHHH": "3007"
+    }
+  ]
+}

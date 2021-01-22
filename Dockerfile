@@ -23,5 +23,5 @@ RUN cmake .. \
  && make -j8
 
 # Running texugo
-WORKDIR /build-docker/bin
-CMD [ "./texugo_process" ]
+WORKDIR /build-docker/src
+CMD [ "./texugo" ]

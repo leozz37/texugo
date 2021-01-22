@@ -1,6 +1,6 @@
-#include "texugo/message/ProcessMessage.hpp"
-#include "texugo/com/ConnectionManager.hpp"
-#include "texugo/message/MessageParser.hpp"
+#include "ProcessMessage.hpp"
+#include "ConnectionManager.hpp"
+#include "MessageParser.hpp"
 
 void ProcessMessage::processMessage(const std::string& payload)
 {

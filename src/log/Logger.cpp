@@ -1,4 +1,4 @@
-#include "texugo/log/Logger.hpp"
+#include "Logger.hpp"
 #include <iostream>
 #include <spdlog/sinks/rotating_file_sink.h>
 

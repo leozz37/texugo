@@ -1,5 +1,5 @@
 #pragma once
-#include "texugo/log/Logger.hpp"
+#include "Logger.hpp"
 #include <boost/asio.hpp>
 #include <cstdlib>
 #include <iostream>

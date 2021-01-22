@@ -37,3 +37,7 @@ jobs:
                 cmake -DCPM_SOURCE_CACHE=~/cpm-cache ..
                 make -j2
 
+            - name: Run Unit Tests
+              run: |
+                cd ./tests/unit
+                ctest -V -j2

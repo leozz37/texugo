@@ -1,5 +1,6 @@
-#include "texugo/message/MessageParser.hpp"
-#include "texugo/log/Logger.hpp"
+#include "MessageParser.hpp"
+#include "Logger.hpp"
+#include <nlohmann/json.hpp>
 
 MessageParser::MessageParser(const std::string& message)
 {

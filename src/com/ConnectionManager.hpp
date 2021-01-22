@@ -1,6 +1,6 @@
 #pragma once
-#include "texugo/com/ReceiverConnection.hpp"
-#include "texugo/com/SenderConnection.hpp"
+#include "ReceiverConnection.hpp"
+#include "SenderConnection.hpp"
 #include <memory>
 #include <string>
 #include <unordered_map>

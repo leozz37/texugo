@@ -1,5 +1,5 @@
-#include "texugo/com/SenderConnection.hpp"
-#include "texugo/log/Logger.hpp"
+#include "SenderConnection.hpp"
+#include "Logger.hpp"
 
 using boost::asio::ip::tcp;
 
