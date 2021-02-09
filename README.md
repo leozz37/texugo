@@ -121,14 +121,6 @@ Or simply use the `--network "host"` argument, recommended for testing:
 $ docker run --network host texugo
 ```
 
-## Running Tests
-
-```bash
-$ cd build/tests
-
-$ ctest -R texugo_tests -V -j2
-```
-
 ## Running Docker Image
 
 Building the image:
@@ -147,14 +139,6 @@ Running docker compose:
 
 ```bash
 $ docker-compose up
-```
-
-## DockerHub Image
-
-You can find the latest image version [here](https://hub.docker.com/repository/docker/leozz37/texugo);
-
-```bash
-$ docker pull leozz37/texugo
 ```
 
 ## Examples
